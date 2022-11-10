@@ -1,0 +1,199 @@
+<html>
+<head>
+<meta content="text/html; charset = UTF-8" http-equiv="content-type">
+
+<title>Controle de Estoque</title>
+</head>
+
+<script type="text/javascript">
+
+function addIdToPath(form_name, base_url){
+    var your_form = document.getElementById(form_name);
+	var id = your_form.elements.namedItem("id").value;
+	action_src = base_url + id;
+	your_form.action = action_src;
+}
+
+</script>
+
+
+<body>
+	<p>
+	<h1>CRUD DE USUÁRIOS</h1>
+	</p>
+	<section class="section--container__responsive">
+		<section class="section--mainrow__responsive first--section">
+			<h1 class="generaltext">Cadastrar Usuário</h1>
+			<form class="form--register" action="http://localhost:6789/insert" method="post" id="form-add">
+				<p>Nome:</p>          
+				<input class="input--register" type="text" name="inputName" value="">
+				<p>Email:</p>              
+				<input class="input--register" type="email" name="inputEmail" value="">
+				<p>Senha:</p>
+				<input class="input--register" type="password" name="inputPwd" value="">
+				<input type="submit" value="cadastrar" class="input--main__style input--button">
+			</form>
+		</section>
+	</section>
+	<section class="section--container__responsive">
+		<section class="section--row__responsive">
+			<h1 class="generaltext">Detalhar usuário</h1>
+			<form class="form--get" action="http://localhost:6789/get" method="get" id="form-get">
+				<input class="input--down" type="text" id="idGet" name="idGet" value="" placeholder="id do usuario..."> 
+				<input type="submit" value="consultar" class="input--button input--consult__style">
+			</form>
+		</section>
+		
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		
+		<section class="section--row__responsive">
+			<h1 class="generaltext">Remover usuário</h1>
+			<form class="form--delete" action="http://localhost:6789/delete" method="get" id="form-delete">
+				<input class="input--down" type="text" id="id" name="id" value="" placeholder="id do usuario...">
+				<input type="submit" value="remover" class="input--remove__style input--button">
+			</form>
+		</section>
+		
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+		<section class="section--row__responsive">
+			<h1 class="generaltext">Listar usuários</h1>
+			<form action="http://localhost:6789/list"  method="get" id="form-all">
+			    <br><br><br>
+				<input type="submit" value="todos" class="input--consult__style input--button">
+			</form>
+		</section>
+	</section>
+	<section class="section--container__responsive">
+		<section class="section--mainrow__responsive first--section">
+			<h1 class="generaltext">Atualizar Usuário</h1>
+			<form class="form--update" action="http://localhost:6789/update" method="get" id="form-update">
+				<p>Código:</p>              
+				<input class="input--register" type="text" name="id" value="">
+				<p>Nome:</p>          
+				<input class="input--register" type="text" name="inputName" value="">
+				<p>Email:</p>              
+				<input class="input--register" type="email" name="inputEmail" value="">
+				<p>Senha:</p>
+				<input class="input--register" type="password" name="inputPwd" value="">
+				<input type="submit" value="atualizar" class="input--main__style input--button">
+			</form>
+		</section>
+	</section>
+
+	<section class="section--container__responsive" style="visibility: hidden" id="product-result">
+		<table border="1">
+			<tr>
+				<td>Usuario id:</td>
+				<td><span id="id">Sem Resultado</span></td>
+			</tr>
+			<tr>
+				<td>Nome:</td>
+				<td><span id="descricao">Sem Resultado</span></td>
+			</tr>
+			<tr>
+				<td>Email:</td>
+				<td><span id="preco">Sem Resultado</span></td>
+			</tr>
+			<tr>
+				<td>Senha:</td>
+				<td><span id="quant">Sem Resultado</span></td>
+			</tr>
+			<tr>
+				<td>Data de fabricacao:</td>
+				<td><span id="dataFabricacao">Sem Resultado</span></td>
+			</tr>
+		</table>
+	</section>
+
+	<style>
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background-color: white;
+}
+
+.generaltext, p {
+	font-family: Arial;
+	text-align: center;
+}
+
+.section--container__responsive {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	border-bottom: dashed;
+	border-color: gray;
+}
+
+.input--down {
+	display: block;
+	margin: 0px auto;
+	margin-bottom: 10px;
+}
+
+.input--main__style {
+	background-color: #00FF00;
+}
+
+.input--remove__style {
+	background-color: red;
+}
+
+.input--consult__style {
+	background-color: darkblue;
+}
+
+.input--button {
+	font-weight: bold;
+	font-family: Arial;
+	font-size: medium;
+	border-color: transparent;
+	display: block;
+	margin: 0px auto;
+	margin-bottom: 10px;
+	color: white;
+}
+
+.input--register {
+	display: inline;
+}
+
+.input--radio {
+	display: inline;
+}
+
+input {
+	display: block;
+	border-radius: 7px;
+	padding: 10px;
+	border-style: solid;
+	border-color: lightgray;
+	color: black;
+	padding: 10px;
+	margin-bottom: 10px;
+}
+
+.p--radio__display {
+	display: block;
+}
+
+form p {
+	text-align: initial;
+	display: inline;
+	margin-left: 15px;
+}
+
+.p--nomargin {
+	margin-left: 0px;
+	margin-right: 10px;
+}
+</style>
+
+
+
+</body>
+</html>

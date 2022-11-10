@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<!-- === === -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Login e Cadastro</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="../img/LogiaAlt4.png" />
+    <!-- ===== Iconscout CSS ===== -->
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+    />
+
+    <!-- ===== CSS ===== -->
+    <link rel="stylesheet" href="./css/login.css" />
+
+    <!-- ===== Mask ===== -->
+    <script src="../vanilla-masker-master/build/vanilla-masker.min.js"></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="forms">
+        <div class="form login">
+          <span class="title">Entrar</span>
+          <img src="./assets/naDespFundoBranco.png" class="logo" /> <!-- LOGO -->
+          <form class="Entrar" action="http://localhost:6789/login" method="post">
+            <div class="input-field">
+              <input
+                type="text"
+                id="logUser"
+                name="logUser"
+                placeholder="Digite seu nome de usuário"
+                required
+              />
+              <i class="uil uil-user"></i>
+            </div>
+            <div class="input-field">
+              <input
+                type="password"
+                id="logPwd"
+                name="logPwd"
+                class="password"
+                placeholder="Digite sua senha"
+                required
+              />
+              <i class="uil uil-lock icon"></i>
+              <i class="uil uil-eye-slash showHidePw"></i>
+            </div>
+
+            <div class="checkbox-text">
+              <div class="checkbox-content"></div>
+            </div>
+
+            <div class="input-field button">
+              <input id="button" type="submit" value="Entrar!" />
+            </div>
+          </form>
+          <div class="login-signup">
+            <span class="text"
+              >Não tem conta?
+              <a href="#" class="text signup-link">Crie agora!</a>
+            </span>
+          </div>
+        </div>
+
+        <!-- Registration Form -------------------------------------------------------------------------->
+        <div class="form signup">
+          <span class="title">Criar uma conta</span>
+          <img src="./assets/naDespFundoBranco.png" class="logo" /> <!--logo site-->
+          <form class="cadastro" action="http://localhost:6789/insert" onload="test()" method="post">
+            <div class="input-field">
+              <input
+                id="inputName"
+                name="inputName"
+                type="text"
+                placeholder="Digite seu nome"
+                required
+              />
+              <i class="uil uil-user"></i>
+            </div>
+
+            <div class="input-field">
+              <input
+                id="inputEmail"
+                name="inputEmail"
+                type="email"
+                placeholder="Digite seu email"
+                required
+              />
+              <i class="uil uil-envelope icon"></i>
+            </div>
+            <div class="input-field">
+              <input
+                type="password"
+                id="inputPwd"
+                name="inputPwd"
+                class="password"
+                placeholder="Digite uma senha"
+                required
+              />
+              <i class="uil uil-lock icon"></i>
+              <i class="uil uil-eye-slash showHidePw"></i>
+            </div>
+
+            <div class="checkbox-text">
+              <div class="checkbox-content">
+                <input type="checkbox" id="sigCheck" required />
+                <label for="sigCheck" class="text"
+                  >Eu li e aceito os Termos e Condições</label
+                >
+              </div>
+            </div>
+
+            <div class="input-field button">
+              <input id="button" type="submit" value="Criar!" />
+            </div>
+          </form>
+
+          <div class="login-signup">
+            <span class="text"
+              >Já tem uma conta?
+              <a href="#" class="text login-link">Entre agora!</a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./js/login.js"></script>
+  </body>
+</html>
