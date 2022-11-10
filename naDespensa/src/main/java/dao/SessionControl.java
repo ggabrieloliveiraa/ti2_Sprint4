@@ -18,8 +18,6 @@ public class SessionControl extends DAO {
 			System.out.println(sql);
 			ResultSet rs = st.executeQuery(sql);
 			if (rs.next()) {
-				
-				
 				currentUserId = rs.getInt("codigo");
 			}
 			st.close();
