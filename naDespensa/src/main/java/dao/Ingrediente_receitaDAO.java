@@ -59,7 +59,6 @@ public class Ingrediente_receitaDAO extends DAO {
 				System.out.println(sql);
 				ResultSet rs = st.executeQuery(sql);
 				if (rs.next()) {
-					System.out.println("entrei");
 					ingrediente_receita = new Ingrediente_receita(rs.getInt("idingrediente"), getMaxId(),
 							Integer.parseInt(array[0]));
 					insert(ingrediente_receita);

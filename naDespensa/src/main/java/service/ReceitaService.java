@@ -57,7 +57,6 @@ public class ReceitaService {
 			receita.setNome(request.queryParams("nome"));
 			receita.setModoDePreparo(request.queryParams("modoDePreparo"));
 			receita.setImagem(request.queryParams("imagem"));
-
 			receitaDAO.update(receita);
 
 			return id;
