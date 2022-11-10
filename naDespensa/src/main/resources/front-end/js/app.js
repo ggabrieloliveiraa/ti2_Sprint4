@@ -59,59 +59,30 @@ window.onload = function () {
 var funcShowIngredients = function () {
   for (let k = 1; k <= 30; k++) {
     let theUrl = `http://localhost:6789/getIngredienteApp/${k}`;
-    /*
-    var xmlHttp = null;
-    xmlHttp = new XMLHttpRequest();
-*/
-
-    if (window.XMLHttpRequest) {
-      // code for IE7+, Firefox, Chrome, Opera, Safari
-      xmlhttp = new XMLHttpRequest();
-    } else {
-      // code for IE6, IE5
-      xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    xmlhttp.onreadystatechange = function () {
-      if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-        return xmlhttp.responseText;
-      }
-    };
-    xmlhttp.open("GET", theUrl, false);
-    xmlhttp.send();
-
-    //return xmlHttp.responseText;
-    console.log(xmlHttp.responseText);
+    var response = $.ajax({
+      url: theUrl,
+      method: "GET",
+      contentType: "text/plain",
+      preocessData: false,
+      success: function (resposta) {
+        console.log(resposta);
+      },
+    }).responseText;
   }
 };
-/*
-function httpGet(theUrl) {
-  if (window.XMLHttpRequest) {
-    // code for IE7+, Firefox, Chrome, Opera, Safari
-    xmlhttp = new XMLHttpRequest();
-  } else {
-    // code for IE6, IE5
-    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-  }
-  xmlhttp.onreadystatechange = function () {
-    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-      return xmlhttp.responseText;
-    }
-  };
-  xmlhttp.open("GET", theUrl, false);
-  xmlhttp.send();
-}*/
 
-/*var get = function () {
-  for (let k = 0; k < 30; k++) {
-    console.log(`http://localhost:6789/insertreceita/${k}`);
-  }
-};*/
+let ingredientesHtml = "";
 
-/*
-var get = function() {
-	var myClass = Java.type("dao.IngredienteDAO");
-	for (let k = 0; k < 30; k++){
-		console.log(myClass.get(k));
-	}
-}
-*/
+var createIngredients = function (resposta) {
+  const ingInfo = resposta.split(",");
+  ingredientesHtml += `
+      <div id="${ingInfo[1]}" class="btn grid-item" onclick="ingrSelec('${ingInfo[1]}')">
+           <img src="./icons/alho.png" />${ingInfo[1]}
+      </div>
+  `;
+  /*
+  <div id="alho" class="btn grid-item" onclick="ingrSelec('alho')">
+              <img src="./icons/alho.png" />Alho
+            </div>
+  */
+};
