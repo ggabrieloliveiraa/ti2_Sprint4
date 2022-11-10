@@ -1,5 +1,5 @@
 package model;
-import service.SessionControl;
+
 
 public class Receita {
 	private int idReceita, serve, dificuldade, tempoDePreparo, categoria, usuarioPublicador_codigo;
@@ -164,7 +164,5 @@ public class Receita {
 				+ usuarioPublicador_codigo + ", nome=" + nome + ", modoDePreparo=" + modoDePreparo + ", imagem="
 				+ imagem + "]";
 	}
-	
-
-	
+		
 }

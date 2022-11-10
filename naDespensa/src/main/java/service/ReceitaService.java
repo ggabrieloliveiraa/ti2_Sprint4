@@ -6,6 +6,7 @@ import spark.Request;
 import spark.Response;
 
 import dao.ReceitaDAO;
+import dao.SessionControl;
 import model.Receita;
 import dao.Ingrediente_receitaDAO;
 
@@ -30,7 +31,7 @@ public class ReceitaService {
 //idReceita, serve, dificuldade, tempoDePreparo, categoria, receitaPublicador_codigo
 		String resp = "";
 
-		Receita receita = new Receita(0, serve, dificuldade, tempoDePreparo, categoria, 1, nome, modoDePreparo, imagem);
+		Receita receita = new Receita(0, serve, dificuldade, tempoDePreparo, categoria, SessionControl.currentUserId, nome, modoDePreparo, imagem);
 
 		if (receitaDAO.insert(receita) == true) {
 			resp = "Receita (" + nome + ") inserido!";

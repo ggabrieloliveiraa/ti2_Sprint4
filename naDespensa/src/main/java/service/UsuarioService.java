@@ -11,6 +11,7 @@ import spark.Request;
 import spark.Response;
 import dao.DAO;
 import dao.UsuarioDAO;
+import dao.SessionControl;
 import model.Usuario;
 
 
@@ -97,7 +98,8 @@ public class UsuarioService {
 		String username = request.queryParams("logUser");
 		String senha = DAO.toMD5(request.queryParams("logPwd"));
 		if (usuarioDAO.autenticar(username, senha)) {
-			SessionControl.setCurrentUser(username);
+			SessionControl currentUser = new SessionControl();
+			currentUser.setCurrentUser(username);
 			//Desktop.getDesktop().browse(htmlFile.toURI());
 			return ("LOGIN SUCESSO, BEM VINDO " + SessionControl.currentUserName);
 		} else {
