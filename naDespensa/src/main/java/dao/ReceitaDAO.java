@@ -36,6 +36,7 @@ public class ReceitaDAO extends DAO {
 		boolean status = false;
 		try {
 			
+			
 			Statement st = conexao.createStatement();
 			String sql = "INSERT INTO receita (idReceita, nome, serve, dificuldade, tempoDePreparo, modoDePreparo, categoria, usuarioPublicador_codigo, imagem) "
 					+ "VALUES (" + getMaxId() + ", '" + receita.getNome() + "', '" + receita.getServe() + "', '"

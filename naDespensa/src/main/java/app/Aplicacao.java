@@ -1,8 +1,4 @@
 package app;
-<<<<<<< HEAD
-
-=======
->>>>>>> branch 'main' of https://github.com/Gabriel4020/ti2_Sprint4.git
 
 import static spark.Spark.*;
 import service.*;
@@ -14,6 +10,7 @@ public class Aplicacao {
 	private static IngredienteService ingredienteService = new IngredienteService();
 	public static void main(String[] args) throws Exception {
 		port(6789);
+		
 		
 		
 		post("/insert", (request, response) -> usuarioService.insert(request, response));

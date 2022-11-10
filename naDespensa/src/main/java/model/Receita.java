@@ -32,6 +32,7 @@ public class Receita {
 	 * @return the idReceita
 	 */
 	
+	
 	public int getIdReceita() {
 		return idReceita;
 	}

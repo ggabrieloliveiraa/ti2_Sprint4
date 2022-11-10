@@ -10,6 +10,7 @@ public class DAO {
 	
 	public DAO() {
 		
+		
 		conexao = null;
 	}
 	
