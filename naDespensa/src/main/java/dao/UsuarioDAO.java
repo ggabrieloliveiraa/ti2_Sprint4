@@ -10,6 +10,7 @@ public class UsuarioDAO extends DAO {
 	public int getMaxCodigo() {
 		int nextCodigo = 0;
 		try {
+			
 			Statement st = conexao.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 			String sql = "SELECT MAX(codigo) AS max_id FROM usuario";
 			ResultSet rs = st.executeQuery(sql);

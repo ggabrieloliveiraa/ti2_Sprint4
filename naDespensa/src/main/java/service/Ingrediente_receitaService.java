@@ -16,6 +16,7 @@ public class Ingrediente_receitaService {
 		String tipo = request.queryParams("tipo");
 		String resp = "";
 
+		
 		Ingrediente ingrediente = new Ingrediente(0, nome, tipo);
 
 		if (ingredienteDAO.insert(ingrediente) == true) {

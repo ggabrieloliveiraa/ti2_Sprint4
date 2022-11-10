@@ -63,6 +63,7 @@ public class IngredienteDAO extends DAO {
 			st.close();
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
+			
 		}
 		return ingrediente;
 	}

@@ -10,6 +10,7 @@ public class SessionControl extends DAO {
 	static public String currentUserName;
 	static public int currentUserId;
 
+	
 	public void setCurrentUser(String nome) {
 		currentUserName = nome;
 		try {

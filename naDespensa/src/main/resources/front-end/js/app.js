@@ -1,21 +1,17 @@
 const getElement = (selector) => {
-  const element = document.querySelector(selector)
+  const element = document.querySelector(selector);
 
-  if (element) return element
+  if (element) return element;
   throw Error(
     `Please double check your class names, there is no ${selector} class`
-  )
-}
+  );
+};
 
+const date = getElement("#date");
+const currentYear = new Date().getFullYear();
+date.textContent = currentYear;
 
-
-
-const date = getElement('#date')
-const currentYear = new Date().getFullYear()
-date.textContent = currentYear
-
-
-function search (ings) {
+function search(ings) {
   console.log(`
   SELECT ID
     FROM Receita
@@ -27,47 +23,64 @@ var ings = []; //salvar os ingredientes
 var i = 0;
 var j = 0;
 
-//funcao para mostrar o ingrediente selecionado no console + mudar bg 
-function ingrSelec (valor) {
+//funcao para mostrar o ingrediente selecionado no console + mudar bg
+function ingrSelec(valor) {
   const bg = document.querySelector("#" + valor);
-  if (bg.style.background == "rgba(255, 191, 133, 0.5)")
-  {
-    bg.style.background= "rgba(255, 191, 133, 0.0)"
-    
-    for (i = 0; i<ings.length; i++) {
+  if (bg.style.background == "rgba(255, 191, 133, 0.5)") {
+    bg.style.background = "rgba(255, 191, 133, 0.0)";
+
+    for (i = 0; i < ings.length; i++) {
       if (ings[i] == valor) {
-        for (j = i; j < ings.length; j++)
-        {
-          ings[j] = ings[j+1];
+        for (j = i; j < ings.length; j++) {
+          ings[j] = ings[j + 1];
         }
       }
     }
-    
   } else {
-    
-    bg.style.background= "rgba(255, 191, 133, 0.5)";   
+    bg.style.background = "rgba(255, 191, 133, 0.5)";
     ings[ings.length + 1] = valor;
     console.log(valor);
   }
-
 }
 
 //funcao para animacao do hambuger menu
 window.onload = function () {
-  const menu_btn = document.querySelector('.hamburger');
-  const hambuger_menu = document.querySelector('.hamburger-nav');
+  const menu_btn = document.querySelector(".hamburger");
+  const hambuger_menu = document.querySelector(".hamburger-nav");
 
-  menu_btn.addEventListener('click', function () {
-    menu_btn.classList.toggle('is-active');
-    hambuger_menu.classList.toggle('is-active');
-  })
-}
+  menu_btn.addEventListener("click", function () {
+    menu_btn.classList.toggle("is-active");
+    hambuger_menu.classList.toggle("is-active");
+  });
 
+  funcShowIngredients();
+};
+
+var funcShowIngredients = function () {
+  for (let k = 1; k <= 30; k++) {
+    let theUrl = `http://localhost:6789/getIngredienteApp/${k}`;
+
+    var xmlHttp = null;
+    xmlHttp = new XMLHttpRequest();
+    xmlHttp.open("GET", theUrl, false);
+    xmlHttp.send(null);
+
+    //return xmlHttp.responseText;
+    console.log(xmlHttp.responseText);
+  }
+};
+
+/*var get = function () {
+  for (let k = 0; k < 30; k++) {
+    console.log(`http://localhost:6789/insertreceita/${k}`);
+  }
+};*/
+
+/*
 var get = function() {
 	var myClass = Java.type("dao.IngredienteDAO");
 	for (let k = 0; k < 30; k++){
 		console.log(myClass.get(k));
 	}
 }
-
-
+*/

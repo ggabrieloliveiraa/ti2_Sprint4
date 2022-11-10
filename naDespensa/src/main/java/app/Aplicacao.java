@@ -27,5 +27,6 @@ public class Aplicacao {
 		get("/deleteingrediente", (request, response) -> ingredienteService.delete(request, response));
 		get("/listingredientes", (request, response) -> ingredienteService.getAll(request, response));
 		
+		
 	}
 }
