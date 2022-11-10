@@ -8,7 +8,6 @@ public class Ingrediente_receita {
 		this.receita_idreceita = -1;
 		this.quantidade = 0;
 	}
-	
 
 	public Ingrediente_receita(int ingrediente_idingrediente, int receita_idreceita, int quantidade) {
 		super();
