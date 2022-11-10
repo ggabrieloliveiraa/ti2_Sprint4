@@ -1,5 +1,5 @@
 package model;
-import service.SessionControl;
+
 
 public class Receita {
 	private int idReceita, serve, dificuldade, tempoDePreparo, categoria, usuarioPublicador_codigo;
@@ -31,6 +31,8 @@ public class Receita {
 	/**
 	 * @return the idReceita
 	 */
+	
+	
 	public int getIdReceita() {
 		return idReceita;
 	}
@@ -164,7 +166,5 @@ public class Receita {
 				+ usuarioPublicador_codigo + ", nome=" + nome + ", modoDePreparo=" + modoDePreparo + ", imagem="
 				+ imagem + "]";
 	}
-	
-
-	
+		
 }

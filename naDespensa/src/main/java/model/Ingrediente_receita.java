@@ -20,6 +20,7 @@ public class Ingrediente_receita {
 	 * @return the ingrediente_idingrediente
 	 */
 	public int getIngrediente_idingrediente() {
+		
 		return ingrediente_idingrediente;
 	}
 

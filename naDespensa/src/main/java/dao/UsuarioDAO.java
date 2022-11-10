@@ -22,6 +22,7 @@ public class UsuarioDAO extends DAO {
 			System.err.println(e.getMessage());
 		}
 		return nextCodigo;
+		
 	}
 
 	public UsuarioDAO() {
