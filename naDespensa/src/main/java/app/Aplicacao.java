@@ -29,6 +29,7 @@ public class Aplicacao {
 		get("/listingredientes", (request, response) -> ingredienteService.getAll(request, response));
 		get("/getIngredienteApp/:k", (request, response) -> ingredienteService.getIngredienteApp(request.params(":k")));
 		
+		
 	}
 	/*
 	public static String getIngredienteApp (int k) {

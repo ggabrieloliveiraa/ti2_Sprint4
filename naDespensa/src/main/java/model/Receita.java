@@ -15,6 +15,7 @@ public class Receita {
 		this.modoDePreparo = "";
 	}
 	
+	
 	public Receita(int idReceita, int serve, int dificuldade, int tempoDePreparo, int categoria,
 			int usuarioPublicador_codigo, String nome, String modoDePreparo, String imagem) {
 		this.idReceita = idReceita;

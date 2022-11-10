@@ -13,6 +13,7 @@ public class Usuario {
 		this.email = "";
 	}
 	
+	
 	public Usuario(int codigo, String username, String senha, String email) {
 		this.codigo = codigo;
 		this.username = username;
