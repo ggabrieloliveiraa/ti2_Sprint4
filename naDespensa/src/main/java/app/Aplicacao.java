@@ -1,8 +1,5 @@
 package app;
-<<<<<<< HEAD
 
-=======
->>>>>>> branch 'main' of https://github.com/Gabriel4020/ti2_Sprint4.git
 
 import static spark.Spark.*;
 import service.*;
