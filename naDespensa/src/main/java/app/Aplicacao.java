@@ -29,5 +29,12 @@ public class Aplicacao {
 		get("/updateingrediente", (request, response) -> ingredienteService.update(request, response));
 		get("/deleteingrediente", (request, response) -> ingredienteService.delete(request, response));
 		get("/listingredientes", (request, response) -> ingredienteService.getAll(request, response));
+	
+		
+	}
+	
+	public static String getIngredienteApp (int k) {
+	
+		return ingredienteService.getIngredienteApp(k);
 	}
 }

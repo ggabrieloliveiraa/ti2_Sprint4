@@ -81,4 +81,8 @@ public class IngredienteService {
 		}
 		return allIngredientes;
 	}
+	
+	public String getIngredienteApp (int k) {
+		return ingredienteDAO.get(k).toString();
+	}
 }

@@ -62,3 +62,12 @@ window.onload = function () {
     hambuger_menu.classList.toggle('is-active');
   })
 }
+
+var get = function() {
+	var myClass = Java.type("dao.IngredienteDAO");
+	for (let k = 0; k < 30; k++){
+		console.log(myClass.get(k));
+	}
+}
+
+
