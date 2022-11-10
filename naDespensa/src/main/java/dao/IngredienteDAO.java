@@ -47,7 +47,6 @@ public class IngredienteDAO extends DAO {
 		}
 		return status;
 	}
-	
 
 	public Ingrediente get(int idIngrediente) {
 		Ingrediente ingrediente = null;
@@ -65,7 +64,6 @@ public class IngredienteDAO extends DAO {
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
 		}
-		
 		return ingrediente;
 	}
 

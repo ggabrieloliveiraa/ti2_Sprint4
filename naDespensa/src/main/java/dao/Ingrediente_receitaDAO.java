@@ -7,7 +7,6 @@ import model.Ingrediente_receita;
 public class Ingrediente_receitaDAO extends DAO {
 	public int getMaxId() {
 		
-		
 		int nextCodigo = 0;
 		try {
 			Statement st = conexao.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
@@ -22,7 +21,7 @@ public class Ingrediente_receitaDAO extends DAO {
 		}
 		return nextCodigo;
 	}
-
+	
 	public Ingrediente_receitaDAO() {
 		super();
 		conectar();
