@@ -3,16 +3,14 @@ package app;
 import static spark.Spark.*;
 import service.*;
 
-
 public class Aplicacao {
 	private static UsuarioService usuarioService = new UsuarioService();
 	private static ReceitaService receitaService = new ReceitaService();
 	private static IngredienteService ingredienteService = new IngredienteService();
+
 	public static void main(String[] args) throws Exception {
 		port(6789);
-		
-		
-		
+
 		post("/insert", (request, response) -> usuarioService.insert(request, response));
 		post("/login", (request, response) -> usuarioService.autenticar(request, response));
 		get("/get", (request, response) -> usuarioService.get(request, response));

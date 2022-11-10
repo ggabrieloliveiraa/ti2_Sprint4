@@ -4,7 +4,6 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import model.Usuario;
 
 public class UsuarioDAO extends DAO {
@@ -15,14 +14,14 @@ public class UsuarioDAO extends DAO {
 			String sql = "SELECT MAX(codigo) AS max_id FROM usuario";
 			ResultSet rs = st.executeQuery(sql);
 			if (rs.next()) {
-			    nextCodigo = rs.getInt("max_id") + 1;
+				nextCodigo = rs.getInt("max_id") + 1;
 			}
 			return nextCodigo;
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
 		}
 		return nextCodigo;
-		
+
 	}
 
 	public UsuarioDAO() {
@@ -146,12 +145,14 @@ public class UsuarioDAO extends DAO {
 			System.out.println(sql);
 			ResultSet rs = st.executeQuery(sql);
 			resp = rs.next();
-			//if (resp)
-			//{
-			//	String sql2 = "SELECT codigo AS currentCodigo FROM usuario WHERE username=" + username;
-		//		ResultSet rs2 = st.executeQuery(sql2);
-		//		CurrentUser cu = new CurrentUser(rs2.getInt("currentCodigo"), username, "fodase");
-		//	}
+			// if (resp)
+			// {
+			// String sql2 = "SELECT codigo AS currentCodigo FROM usuario WHERE username=" +
+			// username;
+			// ResultSet rs2 = st.executeQuery(sql2);
+			// CurrentUser cu = new CurrentUser(rs2.getInt("currentCodigo"), username,
+			// "fodase");
+			// }
 			st.close();
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
