@@ -21,6 +21,7 @@ public class Usuario {
 	}
 
 	public int getCodigo() {
+		
 		return codigo;
 	}
 
