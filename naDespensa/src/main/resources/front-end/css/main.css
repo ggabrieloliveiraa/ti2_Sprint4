@@ -5,23 +5,23 @@
 }
 /* fonts */
 
-@import url('https://fonts.googleapis.com/css2?family=League+Spartan&display=swap%27');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600&family=Montserrat&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan&display=swap%27");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600&family=Montserrat&display=swap");
 html {
   font-size: 100%;
 } /*16px*/
 
 :root {
   /* colors */
-  --primary-100: #FFBF85;
-  --primary-200: #FFBF85;
-  --primary-300: #FFBF85;
-  --primary-400: #FFBF85;
-  --primary-500: #FFBF85;
-  --primary-600: #FFBF85;
-  --primary-700: #FFBF85;
-  --primary-800: #FFBF85;
-  --primary-900: #FFBF85;
+  --primary-100: #ffbf85;
+  --primary-200: #ffbf85;
+  --primary-300: #ffbf85;
+  --primary-400: #ffbf85;
+  --primary-500: #ffbf85;
+  --primary-600: #ffbf85;
+  --primary-700: #ffbf85;
+  --primary-800: #ffbf85;
+  --primary-900: #ffbf85;
 
   /* grey */
   --grey-50: #f8fafc;
@@ -43,8 +43,8 @@ html {
   --green-dark: #0f5132;
 
   /* fonts  */
-  --headingFont: 'league spartan', sans-serif;
-  --bodyFont: 'league spartan', sans-serif;
+  --headingFont: "league spartan", sans-serif;
+  --bodyFont: "league spartan", sans-serif;
   --smallText: 0.7em;
   /* rest of the vars */
   --backgroundColor: var(--grey-50);
@@ -67,7 +67,8 @@ html {
 
 body {
   background: var(--backgroundColor);
-  font-family: 'League Spartan', sans-serif; font-weight: 400;
+  font-family: "League Spartan", sans-serif;
+  font-weight: 400;
   font-weight: 400;
   font-weight: 400;
   font-size: 20px;
@@ -88,11 +89,12 @@ h4,
 h5 {
   margin: 0;
   margin-bottom: 1.38rem;
-  font-family: 'League Spartan', sans-serif; font-weight: 400;
+  font-family: "League Spartan", sans-serif;
+  font-weight: 400;
   font-weight: 400;
   font-size: 20px;
   line-height: 18px;
-   text-transform: capitalize;
+  text-transform: capitalize;
   letter-spacing: var(--letterSpacing);
 }
 
@@ -126,11 +128,13 @@ a {
   text-decoration: none !important;
 }
 a:hover {
-  text-decoration:none; 
-  cursor:pointer; 
+  text-decoration: none;
+  cursor: pointer;
   color: inherit;
 }
-a { color: inherit; } 
+a {
+  color: inherit;
+}
 ul {
   list-style-type: none;
   padding: 0;
@@ -143,14 +147,14 @@ ul {
 }
 /* buttons */
 
-.button{
+.button {
   margin-left: auto;
   background: transparent;
   border: 0;
 }
-.button-user{
+.button-user {
   width: 50px !important;
-  margin-bottom:20px;
+  margin-bottom: 20px;
 }
 
 .btn {
@@ -234,7 +238,8 @@ ul {
   height: 7rem;
 }
 ::placeholder {
-  font-family: 'League Spartan', sans-serif; font-weight: 400;
+  font-family: "League Spartan", sans-serif;
+  font-weight: 400;
   color: var(--grey-400);
 }
 .form-alert {
@@ -286,7 +291,6 @@ Navbar
   display: flex;
   align-items: center;
   justify-content: center;
-  
 }
 .nav-center {
   width: 90vw;
@@ -304,7 +308,7 @@ Navbar
 }
 .nav-logo {
   display: flex;
-  align-items:flex-start;
+  align-items: flex-start;
 }
 
 /*.nav-btn {
@@ -365,8 +369,10 @@ HAMBURGER MENU
   border: none;
 }
 
-.hamburger .bar, .hamburger:after, .hamburger:before {
-  content: '';
+.hamburger .bar,
+.hamburger:after,
+.hamburger:before {
+  content: "";
   display: block;
   width: 100%;
   height: 5px;
@@ -374,10 +380,9 @@ HAMBURGER MENU
   margin: 6px 0px;
   transition: 0.4s;
   border-radius: 3px;
-  
 }
 
-.button-add{
+.button-add {
   width: 35px !important;
   font-size: smaller !important;
   margin-left: 20% !important;
@@ -386,7 +391,6 @@ HAMBURGER MENU
 .hamburger.is-active:before {
   background-color: rgb(0, 0, 0);
   transform: rotate(-45deg) translate(-8px, 6px);
-  
 }
 
 .hamburger.is-active:after {
@@ -396,7 +400,6 @@ HAMBURGER MENU
 
 .hamburger.is-active .bar {
   opacity: 0;
-  
 }
 
 /*ham-bur-tab-menu*/
@@ -408,8 +411,8 @@ HAMBURGER MENU
   min-height: 100vh;
   display: block;
   z-index: 98;
-  background-color: #FFF;
-  
+  background-color: #fff;
+
   transition: 0.4s;
 }
 
@@ -420,26 +423,26 @@ HAMBURGER MENU
 }
 
 .hamburger-header {
-  
-  background-color:var(--primary-100) ;
+  background-color: var(--primary-100);
   height: 7rem;
   padding: 2.3rem 30px 10px 6rem;
   text-align: center;
-  font-family: 'League Spartan', sans-serif; font-weight: 700;
+  font-family: "League Spartan", sans-serif;
+  font-weight: 700;
   font-size: 30px;
   line-height: 32px;
-  color: #FFFFFF;
-  
+  color: #ffffff;
 }
 
 /*ham-bur-menu-content*/
 .recipes {
-  padding-top: 20px ;
+  padding-top: 20px;
 }
 
 .recipes .buscar-por {
   margin-left: 2rem;
-  font-family: 'League Spartan', sans-serif; font-weight: 400;
+  font-family: "League Spartan", sans-serif;
+  font-weight: 400;
   font-size: 25px;
   line-height: 21px;
 }
@@ -449,22 +452,24 @@ HAMBURGER MENU
   right: 5.74%;
   top: 21.62%;
   bottom: 84.38%;
-  border: 3px solid #8EC3FC;
+  border: 3px solid #8ec3fc;
   border-radius: 3px;
 }
 
-.ham-options{
-  padding-top: 2.3rem;;
+.ham-options {
+  padding-top: 2.3rem;
 }
 
-.accordion .accordion-button{
-  font-family: 'League Spartan', sans-serif; font-weight: 400 !important;
+.accordion .accordion-button {
+  font-family: "League Spartan", sans-serif;
+  font-weight: 400 !important;
   font-size: 20px;
   line-height: 21px;
 }
 
-.accordion .accordion-collapse{
-  font-family: 'League Spartan', sans-serif; font-weight: 400 !important;
+.accordion .accordion-collapse {
+  font-family: "League Spartan", sans-serif;
+  font-weight: 400 !important;
   font-size: 19px;
   line-height: 21px;
 }
@@ -474,9 +479,8 @@ HAMBURGER MENU
   display: block;
   width: 100%;
   margin-left: 2em;
-  
-  
-  color: #8EC3FC;
+
+  color: #8ec3fc;
   margin-bottom: -5px;
 }
 
@@ -491,7 +495,6 @@ HAMBURGER MENU
   text-decoration: none;
 }
 
-
 @media screen and (min-width: 992px) {
   .navbar {
     height: 6rem;
@@ -503,17 +506,15 @@ HAMBURGER MENU
     padding: 0;
     margin-right: 2rem;
     height: auto;
-    display:flex;
+    display: flex;
     justify-content: center;
     align-items: center;
   }
   .nav-header img {
     width: 100px;
     margin-top: -2px;
-  
   }
 
-  
   .nav-links {
     height: auto !important;
     flex-direction: row;
@@ -536,98 +537,96 @@ HAMBURGER MENU
 Search
 ===============
 */
-.search{
-  position: relative;   
+.search {
+  position: relative;
   margin: -5px 0;
-  }
+}
 
-  .search input{
-   height: 60px;
-   text-indent: 25px;
-   border: 2px solid #FFBF85;
-   border-radius: 60px !important;
-   overflow: hidden;
-  }
+.search input {
+  height: 60px;
+  text-indent: 25px;
+  border: 2px solid #ffbf85;
+  border-radius: 60px !important;
+  overflow: hidden;
+}
 
-  .search input:focus{
-   box-shadow: none;
-   border: 2px solid #FFBF85;
-  }
+.search input:focus {
+  box-shadow: none;
+  border: 2px solid #ffbf85;
+}
 
-  .search .fa-search{
-   position: absolute;
-   top: 0px;
-   right: 10px;
-   color: #FFBF85;
-   padding: 20px;
-   font-size: 20px;
-  }
+.search .fa-search {
+  position: absolute;
+  top: 0px;
+  right: 10px;
+  color: #ffbf85;
+  padding: 20px;
+  font-size: 20px;
+}
 
+.dropdown-toggle {
+  background-color: #8ec3fc;
+  height: 50px;
+  border-radius: 10px;
+  color: white;
+  margin: -10px 0;
+}
+.dropdown .btn:hover {
+  color: white;
+  background-color: #8ec3fc;
+}
+.dropdown .btn[aria-expanded="true"] {
+  color: white;
+  background-color: #8ec3fc;
+  border-bottom: none, none, none;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.dropdown-menu-color {
+  background-color: #8ec3fc;
+}
+.dropdown-menu-color a {
+  background-color: white;
+  color: black;
+  overflow-wrap: break-word;
+  width: auto;
+  text-align: center;
+  border-radius: 5px;
+  margin: 3px;
+  padding: 10px;
+}
+.dropdown-menu-color.show {
+  border-top: none;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border: none;
 
-  .dropdown-toggle  {
-    background-color: #8EC3FC;
-    height: 50px;
-    border-radius: 10px;
-    color: white;
-    margin: -10px 0;
-  }
-  .dropdown .btn:hover {
-    color: white;
-    background-color: #8EC3FC;
-  }
-  .dropdown .btn[aria-expanded="true"] { 
-    color: white;
-    background-color: #8EC3FC; 
-    border-bottom: none, none, none;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-  }
-  .dropdown-menu-color {
-    background-color: #8EC3FC;
-  }
-  .dropdown-menu-color a {
-    background-color: white;
-    color: black;
-    overflow-wrap: break-word;
-    width: auto;
-    text-align: center;
-    border-radius: 5px;
-    margin:3px;
-    padding: 10px;
-  }
-  .dropdown-menu-color.show {
-    border-top: none;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    border: none;
-    
-    top: -3px !important;
-    padding: 3px;
-    width: calc(83.3333333% - 22px);
-    display:flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 2px;
-  }
+  top: -3px !important;
+  padding: 3px;
+  width: calc(83.3333333% - 22px);
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 2px;
+}
 
+.arrow {
+  background-color: #8ec3fc;
+  height: 50px;
+  margin: -10px -0;
+  border-radius: 10px;
+  margin-left: -15px;
+}
+.arrow img {
+  width: 80%;
+  height: 80%;
+  object-fit: fill;
+  align-items: center;
 
-  .arrow {
-    background-color: #8EC3FC;
-    height: 50px;
-    margin: -10px -0;
-    border-radius: 10px;
-    margin-left: -15px;
-  }  
-  .arrow img {
-    width: 80%;
-    height: 80%;
-    object-fit: fill;
-    align-items: center;
-    
-    margin-top: 5px;
-    filter: invert();
-  }
+  margin-top: 5px;
+  filter: invert();
+}
 /*
 =============== 
 Page
@@ -651,7 +650,7 @@ Page
   margin-top: -5px;
 }
 .ingredients .grid-item {
-  background: rgba(255, 191, 133, 0.0);
+  background: rgba(255, 191, 133, 0);
   border: 2px solid rgb(255, 192, 133);
   min-width: 100px;
   min-height: 77px;
@@ -668,16 +667,14 @@ Page
   filter: opacity(0.9);
 }
 
-.ingredients .grid-container .btn{
+.ingredients .grid-container .btn {
   color: black;
 }
 
-.ingredients .grid-container .btn:hover{
+.ingredients .grid-container .btn:hover {
   background-color: rgba(255, 191, 133, 0.5);
-  border-color: #FFBF85;
+  border-color: #ffbf85;
 }
-
-
 
 /*
 =============== 
@@ -738,15 +735,13 @@ Hero
   text-align: center;
 }
 
-
-
 .carousel {
   position: static !important;
 }
 
 .carousel-inner > .carousel-item > img {
   width: 100%;
-  height:360px;
+  height: 360px;
   object-fit: cover;
 }
 
@@ -863,50 +858,47 @@ Recipes
 resultSearch 
 ===============
 */
-.results .title{
+.results .title {
   font-size: 1.6rem;
 }
 
-.results .grid-container{
-  margin-top: 10px!important;
-  display:flex;
+.results .grid-container {
+  margin-top: 10px !important;
+  display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   gap: 10px;
   margin-top: 5px;
 }
-.results .grid-item{
-
-  background-color: #8EC3FC;
+.results .grid-item {
+  background-color: #8ec3fc;
   padding: 15px;
   border-radius: 10px;
 }
 
-.cardRecipe .card{
+.cardRecipe .card {
   border: none;
-  
 }
 
-.cardRecipe{
-  margin:10px;
+.cardRecipe {
+  margin: 10px;
   margin-left: 0;
 }
 
 .cardBorderBottom {
   border-bottom: 2px solid #000000;
-  
 }
 
 .cardRecipe div {
-  background-color: #FFBF85;
+  background-color: #ffbf85;
   border-radius: 10px;
 }
 .cardRecipe img {
-  padding:10px;
+  padding: 10px;
   vertical-align: center;
 }
-.cardRecipe .card-title{
+.cardRecipe .card-title {
   text-align: center;
   font-weight: 600;
   word-wrap: normal;
@@ -922,7 +914,23 @@ resultSearch
     margin-left: auto;
     margin-right: auto;
     width: 50%;
-    padding:10px;
-   
+    padding: 10px;
   }
+}
+
+.dadosReceita {
+  margin: 0;
+  margin-bottom: 1.38rem;
+  font-family: "League Spartan", sans-serif;
+  font-weight: 400;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 18px;
+  text-transform: capitalize;
+  letter-spacing: var(--letterSpacing);
+}
+
+.receitaInput {
+  margin: 15px 0;
+  vertical-align: middle;
 }
