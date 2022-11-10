@@ -59,16 +59,47 @@ window.onload = function () {
 var funcShowIngredients = function () {
   for (let k = 1; k <= 30; k++) {
     let theUrl = `http://localhost:6789/getIngredienteApp/${k}`;
-
+    /*
     var xmlHttp = null;
     xmlHttp = new XMLHttpRequest();
-    xmlHttp.open("GET", theUrl, false);
-    xmlHttp.send(null);
+*/
+
+    if (window.XMLHttpRequest) {
+      // code for IE7+, Firefox, Chrome, Opera, Safari
+      xmlhttp = new XMLHttpRequest();
+    } else {
+      // code for IE6, IE5
+      xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange = function () {
+      if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        return xmlhttp.responseText;
+      }
+    };
+    xmlhttp.open("GET", theUrl, false);
+    xmlhttp.send();
 
     //return xmlHttp.responseText;
     console.log(xmlHttp.responseText);
   }
 };
+/*
+function httpGet(theUrl) {
+  if (window.XMLHttpRequest) {
+    // code for IE7+, Firefox, Chrome, Opera, Safari
+    xmlhttp = new XMLHttpRequest();
+  } else {
+    // code for IE6, IE5
+    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  xmlhttp.onreadystatechange = function () {
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+      return xmlhttp.responseText;
+    }
+  };
+  xmlhttp.open("GET", theUrl, false);
+  xmlhttp.send();
+}*/
 
 /*var get = function () {
   for (let k = 0; k < 30; k++) {

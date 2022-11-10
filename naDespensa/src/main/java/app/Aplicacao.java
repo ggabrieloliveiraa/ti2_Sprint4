@@ -7,6 +7,7 @@ public class Aplicacao {
 	private static UsuarioService usuarioService = new UsuarioService();
 	private static ReceitaService receitaService = new ReceitaService();
 	private static IngredienteService ingredienteService = new IngredienteService();
+
 	public static void main(String[] args) throws Exception {
 		port(6789);
 
@@ -26,7 +27,13 @@ public class Aplicacao {
 		get("/updateingrediente", (request, response) -> ingredienteService.update(request, response));
 		get("/deleteingrediente", (request, response) -> ingredienteService.delete(request, response));
 		get("/listingredientes", (request, response) -> ingredienteService.getAll(request, response));
+		get("/getIngredienteApp/:k", (request, response) -> ingredienteService.getIngredienteApp(request.params(":k")));
 		
 		
 	}
+	/*
+	public static String getIngredienteApp (int k) {
+		
+		return ingredienteService.getIngredienteApp(k);
+	}*/
 }

@@ -49,7 +49,6 @@ public class Ingrediente {
 	 */
 	public String getTipo() {
 		return tipo;
-		
 	}
 
 	/**
