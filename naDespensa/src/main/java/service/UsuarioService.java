@@ -93,12 +93,13 @@ public class UsuarioService {
 	}
 
 	public String autenticar(Request request, Response response) throws Exception {
-		File htmlFile = new File("/home/gabriel/eclipse-workspace/naDespensa/src/main/resources/front-end/index.html");
+		//File htmlFile = new File("/home/gabriel/eclipse-workspace/naDespensa/src/main/resources/front-end/index.html");
 		String username = request.queryParams("logUser");
 		String senha = DAO.toMD5(request.queryParams("logPwd"));
 		if (usuarioDAO.autenticar(username, senha)) {
-			Desktop.getDesktop().browse(htmlFile.toURI());
-			return ("LOGIN SUCESSO");
+			SessionControl.setCurrentUser(username);
+			//Desktop.getDesktop().browse(htmlFile.toURI());
+			return ("LOGIN SUCESSO, BEM VINDO " + SessionControl.currentUserName);
 		} else {
 			return ("LOGIN FALHO");
 		}
