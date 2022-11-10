@@ -32,7 +32,7 @@ public class Aplicacao {
 	}
 	
 	public static String getIngredienteApp (int k) {
-	
+		
 		return ingredienteService.getIngredienteApp(k);
 	}
 }

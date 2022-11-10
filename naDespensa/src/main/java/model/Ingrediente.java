@@ -60,6 +60,7 @@ public class Ingrediente {
 
 	@Override
 	public String toString() {
+		
 		return idIngrediente + "," + nome + "," + tipo;
 	}
 
