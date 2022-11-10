@@ -1,5 +1,6 @@
 package dao;
-//oi gabriel
+//oi gabrieL
+//oi wanderson
 import java.sql.*;
 import java.security.*;
 import java.math.*;
