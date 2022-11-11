@@ -18,9 +18,13 @@
       rel="stylesheet"
       integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
       crossorigin="anonymous" />
+    <script
+      rel="javascript"
+      type="text/javascript"
+      href="js/jquery-1.11.3.min.js"></script>
     <!-- main css -->
     <link rel="stylesheet" href="./css/main.css" />
-
+    <link rel="stylesheet" href="./css/index.css" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   </head>
   <body>
@@ -397,10 +401,13 @@
           class="row height d-flex justify-content-center align-items-center">
           <div class="col-md-8">
             <div class="search">
+              <!--<input type="text" class="form-control" placeholder="Procure aqui por ingredientes">-->
               <input
-                type="text"
                 class="form-control"
-                placeholder="Procure aqui por ingredientes" />
+                type="search"
+                id="search-input1"
+                placeholder="Pesquisar receitas..."
+                onblur="guardarTermoInput()" />
               <a href="resultSearch.html" class="search_arrow"
                 ><i class="fa fa-search"></i
               ></a>
@@ -409,19 +416,16 @@
         </div>
         <div class="row dropdown">
           <div class="col-10">
-            <button
-              class="btn dropdown-toggle container-fluid"
-              type="button"
-              data-bs-toggle="dropdown"
-              data-bs-auto-close="outside"
-              aria-expanded="false">
-              Selecionados da despensa
-            </button>
-            <ul class="dropdown-menu dropdown-menu-color grid-container">
-              <a class="dropdown-item grid-item" href="#">Ingrediente</a>
-              <a class="dropdown-item grid-item" href="#">Ingrediente2</a>
-              <a class="dropdown-item grid-item" href="#">Ingrediente3</a>
-            </ul>
+            <div class="search">
+              <!--<input type="text" class="form-control" placeholder="Procure aqui por ingredientes">-->
+              <input
+                class="form-control"
+                type="search"
+                id="search-input2"
+                placeholder="Procurar ingrediente"
+                oninput="pesquisarIngrediente()" />
+              <a href="resultSearch.html" class="search_arrow"></a>
+            </div>
           </div>
           <div class="col-2">
             <div class="arrow">
@@ -433,48 +437,13 @@
         </div>
         <!-- end of search container -->
         <!-- ingredients list -->
-        <div class="ingredients">
-          <div class="grid-container" id="grid-ingredients">
-            <div id="alho" class="btn grid-item" onclick="ingrSelec('alho')">
-              <img src="./icons/alho.png" />Alho
-            </div>
-            <div id="bacon" class="btn grid-item" onclick="ingrSelec('bacon')">
-              <img src="./icons/bacon.png" />Bacon
-            </div>
-            <div
-              id="cebola"
-              class="btn grid-item"
-              onclick="ingrSelec('cebola')">
-              <img src="./icons/cebola.png" />Cebola
-            </div>
-            <div id="couve" class="btn grid-item" onclick="ingrSelec('couve')">
-              <img src="./icons/couve.png" />Couve
-            </div>
-            <div
-              id="farinha"
-              class="btn grid-item"
-              onclick="ingrSelec('farinha')">
-              <img src="./icons/farinhaDeTrigo.png" />farinha
-            </div>
-            <div
-              id="feijao"
-              class="btn grid-item"
-              onclick="ingrSelec('feijao')">
-              <img src="./icons/feijao.png" />Feijão
-            </div>
-            <div id="leite" class="btn grid-item" onclick="ingrSelec('leite')">
-              <img src="./icons/leite.png" />Leite
-            </div>
-            <div
-              id="mandioca"
-              class="btn grid-item"
-              onclick="ingrSelec('mandioca')">
-              <img src="./icons/mandioca.png" />Mandioca
-            </div>
-            <div id="ovo" class="btn grid-item" onclick="ingrSelec('ovo')">
-              <img src="./icons/ovo.png" />Ovo
-            </div>
-          </div>
+        <div id="ingredientesHidden"></div>
+        <div id="areaSelecionados">
+          Selecionados:
+          <div id="ingredientesSelecionados"></div>
+        </div>
+        <div id="ingredientes">
+          <!--<button class="button-value" onclick="filterProduct('all')">All</button>-->
         </div>
         <!-- end of ingredients list -->
       </section>
@@ -498,5 +467,6 @@
       crossorigin="anonymous"></script>
 
     <script src="./js/app.js"></script>
+    <script src="./js/index.js"></script>
   </body>
 </html>

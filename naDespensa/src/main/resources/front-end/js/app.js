@@ -53,9 +53,9 @@ window.onload = function () {
     hambuger_menu.classList.toggle("is-active");
   });
 
-  funcShowIngredients();
+  //funcShowIngredients();
 };
-
+/*
 var funcShowIngredients = function () {
   for (let k = 1; k <= 30; k++) {
     let theUrl = `http://localhost:6789/getIngredienteApp/${k}`;
@@ -71,7 +71,7 @@ var funcShowIngredients = function () {
     });
   }
 };
-
+*/
 let ingredientesHtml = "";
 
 var createIngredients = function (resposta) {
@@ -103,10 +103,11 @@ var createIngredients = function (resposta) {
   }
 
   ingredientesHtml += `
-      <div style="max-height: 130px rgba(0,0,0,0)" id="${nomeDiv}" class="btn grid-item" onclick="ingrSelec('${nomeDiv}')">
-           <img src="./icons/alho.png" />${nomeF}
-      </div>
+      <button class="b ${nomeDiv} naopesquisado button-value" onclick="addFilter('${nomeDiv}')">${nomeF}</button>    
   `;
+  /*<div style="max-height: 130px rgba(0,0,0,0)" id="${nomeDiv}" class="btn grid-item" onclick="ingrSelec('${nomeDiv}')">
+           <img src="./icons/alho.png" />${nomeF}
+      </div>*/
   document.getElementById("grid-ingredients").innerHTML = ingredientesHtml;
   /*
   <div id="alho" class="btn grid-item" onclick="ingrSelec('alho')">
