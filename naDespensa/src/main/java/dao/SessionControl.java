@@ -26,7 +26,12 @@ public class SessionControl extends DAO {
 			System.err.println(e.getMessage());
 		}
 	}
-
+	
+	public void logout () {
+		currentUserName = null;
+		currentUserId = -1;
+	}
+	
 	public SessionControl() {
 		super();
 		conectar();
