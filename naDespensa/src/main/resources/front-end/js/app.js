@@ -59,15 +59,16 @@ window.onload = function () {
 var funcShowIngredients = function () {
   for (let k = 1; k <= 30; k++) {
     let theUrl = `http://localhost:6789/getIngredienteApp/${k}`;
-    var response = $.ajax({
+    $.ajax({
       url: theUrl,
       method: "GET",
       contentType: "text/plain",
       preocessData: false,
       success: function (resposta) {
         console.log(resposta);
+        createIngredients(resposta);
       },
-    }).responseText;
+    });
   }
 };
 
@@ -75,11 +76,38 @@ let ingredientesHtml = "";
 
 var createIngredients = function (resposta) {
   const ingInfo = resposta.split(",");
+  const nome = ingInfo[1].split(" ");
+  var nomeF = "";
+  if (nome.length >= 2) {
+    nomeF += nome[0];
+    nomeF += " ";
+    nomeF += nome[1];
+    if (nome[1] == "de" || nome[1] == "da" || nome[1] == "do") {
+      nomeF += " ";
+      nomeF += nome[2];
+    }
+  } else {
+    nomeF += ingInfo[1];
+  }
+  var nomeDiv = "";
+  if (nome.length >= 2) {
+    nomeDiv += nome[0];
+    nomeDiv += "_";
+    nomeDiv += nome[1];
+    if (nome[1] == "de" || nome[1] == "da" || nome[1] == "do") {
+      nomeDiv += "_";
+      nomeDiv += nome[2];
+    }
+  } else {
+    nomeDiv += ingInfo[1];
+  }
+
   ingredientesHtml += `
-      <div id="${ingInfo[1]}" class="btn grid-item" onclick="ingrSelec('${ingInfo[1]}')">
-           <img src="./icons/alho.png" />${ingInfo[1]}
+      <div style="max-height: 130px rgba(0,0,0,0)" id="${nomeDiv}" class="btn grid-item" onclick="ingrSelec('${nomeDiv}')">
+           <img src="./icons/alho.png" />${nomeF}
       </div>
   `;
+  document.getElementById("grid-ingredients").innerHTML = ingredientesHtml;
   /*
   <div id="alho" class="btn grid-item" onclick="ingrSelec('alho')">
               <img src="./icons/alho.png" />Alho

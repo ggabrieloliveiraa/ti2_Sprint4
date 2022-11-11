@@ -645,8 +645,8 @@ Page
 
 .ingredients .grid-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  gap: 5px;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 10px;
   margin-top: -5px;
 }
 .ingredients .grid-item {
