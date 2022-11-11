@@ -563,6 +563,37 @@ Search
   padding: 20px;
   font-size: 20px;
 }
+/*
+===============
+Search INGREDIENTE
+===============
+*/
+.search2 {
+  position: relative;
+  margin: -5px 0;
+}
+
+.search2 input {
+  height: 60px;
+  text-indent: 25px;
+  border: 2px solid #ffbf85;
+  border-radius: 60px !important;
+  overflow: hidden;
+}
+
+.search2 input:focus {
+  box-shadow: none;
+  border: 2px solid #ffbf85;
+}
+
+.search2 .fa-search {
+  position: absolute;
+  top: 0px;
+  right: 10px;
+  color: #ffbf85;
+  padding: 20px;
+  font-size: 20px;
+}
 
 .dropdown-toggle {
   background-color: #8ec3fc;
@@ -645,8 +676,8 @@ Page
 
 .ingredients .grid-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  gap: 5px;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 10px;
   margin-top: -5px;
 }
 .ingredients .grid-item {
@@ -933,4 +964,18 @@ resultSearch
 .receitaInput {
   margin: 15px 0;
   vertical-align: middle;
+}
+
+/*cards ++*/
+.card2 {
+  background-color: #ffffff;
+  max-width: 18em;
+  margin-top: 1em;
+  padding: 1em;
+  border-radius: 5px;
+  box-shadow: 1em 2em 2.5em rgba(1, 2, 68, 0.08);
+}
+
+.hide2 {
+  display: none;
 }

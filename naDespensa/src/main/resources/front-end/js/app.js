@@ -53,65 +53,65 @@ window.onload = function () {
     hambuger_menu.classList.toggle("is-active");
   });
 
-  funcShowIngredients();
+  //funcShowIngredients();
 };
-
+/*
 var funcShowIngredients = function () {
   for (let k = 1; k <= 30; k++) {
     let theUrl = `http://localhost:6789/getIngredienteApp/${k}`;
-    /*
-    var xmlHttp = null;
-    xmlHttp = new XMLHttpRequest();
-*/
-
-    if (window.XMLHttpRequest) {
-      // code for IE7+, Firefox, Chrome, Opera, Safari
-      xmlhttp = new XMLHttpRequest();
-    } else {
-      // code for IE6, IE5
-      xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    xmlhttp.onreadystatechange = function () {
-      if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-        return xmlhttp.responseText;
-      }
-    };
-    xmlhttp.open("GET", theUrl, false);
-    xmlhttp.send();
-
-    //return xmlHttp.responseText;
-    console.log(xmlHttp.responseText);
+    $.ajax({
+      url: theUrl,
+      method: "GET",
+      contentType: "text/plain",
+      preocessData: false,
+      success: function (resposta) {
+        console.log(resposta);
+        createIngredients(resposta);
+      },
+    });
   }
 };
-/*
-function httpGet(theUrl) {
-  if (window.XMLHttpRequest) {
-    // code for IE7+, Firefox, Chrome, Opera, Safari
-    xmlhttp = new XMLHttpRequest();
-  } else {
-    // code for IE6, IE5
-    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-  }
-  xmlhttp.onreadystatechange = function () {
-    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-      return xmlhttp.responseText;
-    }
-  };
-  xmlhttp.open("GET", theUrl, false);
-  xmlhttp.send();
-}*/
-
-/*var get = function () {
-  for (let k = 0; k < 30; k++) {
-    console.log(`http://localhost:6789/insertreceita/${k}`);
-  }
-};*/
-
-/*
-var get = function() {
-	var myClass = Java.type("dao.IngredienteDAO");
-	for (let k = 0; k < 30; k++){
-		console.log(myClass.get(k));
-	}
-}
 */
+let ingredientesHtml = "";
+
+var createIngredients = function (resposta) {
+  const ingInfo = resposta.split(",");
+  const nome = ingInfo[1].split(" ");
+  var nomeF = "";
+  if (nome.length >= 2) {
+    nomeF += nome[0];
+    nomeF += " ";
+    nomeF += nome[1];
+    if (nome[1] == "de" || nome[1] == "da" || nome[1] == "do") {
+      nomeF += " ";
+      nomeF += nome[2];
+    }
+  } else {
+    nomeF += ingInfo[1];
+  }
+  var nomeDiv = "";
+  if (nome.length >= 2) {
+    nomeDiv += nome[0];
+    nomeDiv += "_";
+    nomeDiv += nome[1];
+    if (nome[1] == "de" || nome[1] == "da" || nome[1] == "do") {
+      nomeDiv += "_";
+      nomeDiv += nome[2];
+    }
+  } else {
+    nomeDiv += ingInfo[1];
+  }
+
+  ingredientesHtml += `
+      <button class="b ${nomeDiv} naopesquisado button-value" onclick="addFilter('${nomeDiv}')">${nomeF}</button>    
+  `;
+  /*<div style="max-height: 130px rgba(0,0,0,0)" id="${nomeDiv}" class="btn grid-item" onclick="ingrSelec('${nomeDiv}')">
+           <img src="./icons/alho.png" />${nomeF}
+      </div>*/
+  document.getElementById("grid-ingredients").innerHTML = ingredientesHtml;
+  /*
+  <div id="alho" class="btn grid-item" onclick="ingrSelec('alho')">
+              <img src="./icons/alho.png" />Alho
+            </div>
+  */
+};
