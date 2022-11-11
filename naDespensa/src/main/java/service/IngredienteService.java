@@ -78,10 +78,16 @@ public class IngredienteService {
 
 	public String getAll(Request request, Response response) {
 		List<Ingrediente> ingredientes = ingredienteDAO.getOrderByCodigo();
-		String allIngredientes = "";
+		String allIngredientes = "[";
 		for (Ingrediente u : ingredientes) {
-			allIngredientes += u.toString();
+			allIngredientes +="{\"nome\":\"";
+			allIngredientes += u.getNome();
+			allIngredientes +="\",\"idIngrediente\":\"";
+			allIngredientes += u.getIdIngrediente();
+			allIngredientes += "\"},";
 		}
+		allIngredientes = allIngredientes.substring(0, allIngredientes.length() - 1);
+		allIngredientes += "]";
 		return allIngredientes;
 	}
 	
