@@ -72,6 +72,21 @@ var funcShowIngredients = function () {
   }
 };
 */
+
+var testInsert = function () {
+  console.log("entrou");
+  let result = "";
+  fetch("http://localhost:6789/insertreceita")
+    .then((response) => response.json())
+    .then((data) => (result = data));
+  console.log(result);
+  if (result == "500 Internal Server Error" || result == "404 Not found") {
+    window.location.href = "http://127.0.0.1:5501/index.html";
+  } else {
+    window.location.href = "http://127.0.0.1:5501/index.html";
+  }
+};
+
 let ingredientesHtml = "";
 
 var createIngredients = function (resposta) {

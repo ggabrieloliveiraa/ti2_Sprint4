@@ -1,91 +1,30 @@
+// pegar ingredientes do BD ----------
+
 let receitas = {
-  data: [
-    {
-      productName: "Bolo de Chocolate",
-      ingredientes: ["cHoCoLaTe", "farinha", "ovo", "acucar", "leite"],
-      idReceita: "1",
-      serve: "10",
-      dificuldade: "medio",
-      tempo: "60",
-      categoria: "sobremesa",
-      image:
-        "https://popularanime.com.br/wp-content/uploads/2022/10/power-chainsaw-man-1665409375204.jpg",
-    },
-    {
-      productName: "Bolo de Chocolate sem Acucar",
-      ingredientes: ["cHoCoLaTe", "farinha", "ovo", "leite"],
-      idReceita: "4",
-      serve: "10",
-      dificuldade: "medio",
-      tempo: "60",
-      categoria: "sobremesa",
-      image:
-        "https://popularanime.com.br/wp-content/uploads/2022/10/power-chainsaw-man-1665409375204.jpg",
-    },
-    {
-      productName: "Bolo de Cenoura",
-      ingredientes: [
-        "cHoCoLaTe",
-        "cenoura",
-        "farinha",
-        "ovo",
-        "acucar",
-        "leite",
-      ],
-      idReceita: "2",
-      serve: "10",
-      dificuldade: "medio",
-      tempo: "60",
-      categoria: "sobremesa",
-      image:
-        "https://popularanime.com.br/wp-content/uploads/2022/10/power-chainsaw-man-1665409375204.jpg",
-    },
-    {
-      productName: "Bolo de Morango",
-      ingredientes: ["morango", "farinha", "ovo", "acucar", "leite"],
-      idReceita: "3",
-      serve: "10",
-      dificuldade: "medio",
-      tempo: "60",
-      categoria: "sobremesa",
-      image:
-        "https://popularanime.com.br/wp-content/uploads/2022/10/power-chainsaw-man-1665409375204.jpg",
-    },
-    {
-      productName: "Macarrao a Bolonhesa",
-      ingredientes: ["Massadetomate", "sal"],
-      idReceita: "5",
-      serve: "10",
-      dificuldade: "medio",
-      tempo: "20",
-      categoria: "prato salgado",
-      image:
-        "https://popularanime.com.br/wp-content/uploads/2022/10/power-chainsaw-man-1665409375204.jpg",
-    },
-    {
-      productName: "Macarrao na Chapa",
-      ingredientes: ["Cebola", "sal", "shoyo"],
-      idReceita: "6",
-      serve: "10",
-      dificuldade: "medio",
-      tempo: "20",
-      categoria: "prato salgado",
-      image:
-        "https://popularanime.com.br/wp-content/uploads/2022/10/power-chainsaw-man-1665409375204.jpg",
-    },
-    {
-      productName: "Vitamina",
-      ingredientes: ["Abacate", "leite"],
-      idReceita: "7",
-      serve: "10",
-      dificuldade: "medio",
-      tempo: "20",
-      categoria: "bebida",
-      image:
-        "https://popularanime.com.br/wp-content/uploads/2022/10/power-chainsaw-man-1665409375204.jpg",
-    },
-  ],
+  data: [],
 };
+
+let respostaa2 = "";
+fetch("http://localhost:6789/listreceitas")
+  .then((respons) => respons.json())
+  .then((dataa) => localStorage.setItem("respostaa2", dataa));
+
+localStorage.setItem(stringassa, respostaa2);
+
+localStorage.setItem("valor", stringassa);
+localStorage.valor = localStorage.valor.replace(
+  "%22,%22preparo%22:%221.",
+  "",
+  "preparo:",
+  ""
+);
+console.log(localStorage.valor);
+
+stringona2 = localStorage.valor;
+let elementos2 = JSON.parse(stringona2);
+for (let i = 0; i < elementos2.length; i++) {
+  receitas.data.push(elementos2[i]);
+}
 
 let ingredientes = {
   data: [

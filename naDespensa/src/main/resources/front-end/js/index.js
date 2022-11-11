@@ -5,73 +5,84 @@ let receitas = {
       ingredientes: ["cHoCoLaTe", "farinha", "ovo", "acucar", "leite"],
       idReceita: "1",
       serve: "10",
+      dificuldade: "medio",
+      tempo: "60",
       categoria: "sobremesa",
       image:
         "https://popularanime.com.br/wp-content/uploads/2022/10/power-chainsaw-man-1665409375204.jpg",
+      preparo: "MISTURA OS INGREDIENTES E FAZ O BOLO",
+      usuarioPublicador: "0",
     },
     {
       productName: "Bolo de Chocolate sem Acucar",
       ingredientes: ["cHoCoLaTe", "farinha", "ovo", "leite"],
       idReceita: "4",
       serve: "10",
+      dificuldade: "medio",
+      tempo: "60",
       categoria: "sobremesa",
       image:
         "https://popularanime.com.br/wp-content/uploads/2022/10/power-chainsaw-man-1665409375204.jpg",
+      preparo: "MAAAAAAAAAAAAAAAAAAISTURA OS INGREDIENTES E FAZ O BOLO",
+      usuarioPublicador: "0",
     },
-    {
-      productName: "Bolo de Cenoura",
-      ingredientes: [
-        "cHoCoLaTe",
-        "cenoura",
-        "farinha",
-        "ovo",
-        "acucar",
-        "leite",
-      ],
-      idReceita: "2",
-      serve: "10",
-      categoria: "sobremesa",
-      image:
-        "https://popularanime.com.br/wp-content/uploads/2022/10/power-chainsaw-man-1665409375204.jpg",
-    },
-    {
-      productName: "Bolo de Morango",
-      ingredientes: ["morango", "farinha", "ovo", "acucar", "leite"],
-      idReceita: "3",
-      serve: "10",
-      categoria: "sobremesa",
-      image:
-        "https://popularanime.com.br/wp-content/uploads/2022/10/power-chainsaw-man-1665409375204.jpg",
-    },
-    {
-      productName: "Macarrao a Bolonhesa",
-      ingredientes: ["Massadetomate", "sal"],
-      idReceita: "5",
-      serve: "10",
-      categoria: "prato salgado",
-      image:
-        "https://popularanime.com.br/wp-content/uploads/2022/10/power-chainsaw-man-1665409375204.jpg",
-    },
-    {
-      productName: "Macarrao na Chapa",
-      ingredientes: ["Cebola", "sal", "shoyo"],
-      idReceita: "6",
-      serve: "10",
-      categoria: "prato salgado",
-      image:
-        "https://popularanime.com.br/wp-content/uploads/2022/10/power-chainsaw-man-1665409375204.jpg",
-    },
-    {
-      productName: "Vitamina",
-      ingredientes: ["Abacate", "leite"],
-      idReceita: "7",
-      serve: "10",
-      categoria: "bebida",
-      image:
-        "https://popularanime.com.br/wp-content/uploads/2022/10/power-chainsaw-man-1665409375204.jpg",
-    },
+    /*
+      {
+          productName: "Bolo de Cenoura",
+          ingredientes: ["cHoCoLaTe", "cenoura", "farinha", "ovo", "acucar","leite"],
+          idReceita: "2",
+          serve: "10",
+          dificuldade: "medio",
+          tempo: "60",
+          categoria: "sobremesa",
+          image: "https://popularanime.com.br/wp-content/uploads/2022/10/power-chainsaw-man-1665409375204.jpg",
+      },
+      {
+          productName: "Bolo de Morango",
+          ingredientes: ["morango", "farinha", "ovo", "acucar","leite"],
+          idReceita: "3",
+          serve: "10",
+          dificuldade: "medio",
+          tempo: "60",
+          categoria: "sobremesa",
+          image: "https://popularanime.com.br/wp-content/uploads/2022/10/power-chainsaw-man-1665409375204.jpg",
+      },
+      {
+          productName: "Macarrao a Bolonhesa",
+          ingredientes: ["Massadetomate", "sal"],
+          idReceita: "5",
+          serve: "10",
+          dificuldade: "medio",
+          tempo: "20",
+          categoria: "prato salgado",
+          image: "https://popularanime.com.br/wp-content/uploads/2022/10/power-chainsaw-man-1665409375204.jpg",
+      },
+      {
+          productName: "Macarrao na Chapa",
+          ingredientes: ["Cebola", "sal", "shoyo"],
+          idReceita: "6",
+          serve: "10",
+          dificuldade: "medio",
+          tempo: "20",
+          categoria: "prato salgado",
+          image: "https://popularanime.com.br/wp-content/uploads/2022/10/power-chainsaw-man-1665409375204.jpg",
+      },
+      {
+          productName: "Vitamina",
+          ingredientes: ["Abacate", "leite"],
+          idReceita: "7",
+          serve: "10",
+          dificuldade: "medio",
+          tempo: "20",
+          categoria: "bebida",
+          image: "https://popularanime.com.br/wp-content/uploads/2022/10/power-chainsaw-man-1665409375204.jpg",
+      },
+      */
   ],
 };
+
+localStorage.setItem("pesquisaPorTermos", "");
+localStorage.setItem("pesquisaPorIngredientes", "");
 
 // pegar ingredientes do BD ----------
 
@@ -95,54 +106,22 @@ for (let i = 0; i < elementos.length; i++) {
 }
 console.log(ingredientes);
 
-// ------------------------------------
-/*
-// pegar ingredientes do BD ----------
-let ingredientes = {
-  data: [],
-};
-
-let theUrl = `http://localhost:6789/getIngredientejson`;
-
-let respostaa = "";
-fetch("http://localhost:6789/getIngredientejson")
-  .then((response) => response.json())
-  .then((data) => (respostaa = JSON.stringify(data)));
-console.log(respostaa);*/
-/*
-$.ajax({
-  url: theUrl,
-  method: "GET",
-  contentType: "text/plain",
-  preocessData: false,
-  success: function (resposta) {
-    //console.log(resposta);
-  },
-});*/
-/*
-//respostaa = JSON.stringify(respostaa);
-console.log(respostaa);
-
-//let stringona = respostaa;
-var elementos = JSON.parse(respostaa);
-
-for (let i = 0; i < elementos.length; i++) {
-  ingredientes.data.push(elementos[i]);
-}
-console.log(ingredientes);
-*/
-// ------------------------------------
-
 for (let i = 0; i < ingredientes.data.length; i++) {
   let b = document.createElement("button");
   let nomeee = ingredientes.data[i].nome.toUpperCase().split(" ");
   let nomeIngrediente = "";
   if (nomeee.length > 1) {
-    nomeIngrediente += nomeee[0];
-    nomeIngrediente += "_";
+    let p = 0;
+    for (p = 0; p < nomeee.length - 1; p++) {
+      nomeIngrediente += nomeee[p];
+      nomeIngrediente += "_";
+    }
+    nomeIngrediente += nomeee[p];
+    /*
     nomeIngrediente += nomeee[1];
     nomeIngrediente += "_";
     nomeIngrediente += nomeee[2];
+    */
   } else {
     nomeIngrediente += nomeee[0];
   }
@@ -259,6 +238,8 @@ function remove(value) {
 function guardarTermoInput() {
   console.log("mudança");
   let searchInput = document.getElementById("search-input1").value;
+
+  localStorage.setItem("pesquisaPorTermos", JSON.stringify(searchInput));
 
   console.log(searchInput);
 }
