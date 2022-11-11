@@ -21,6 +21,7 @@ public class Aplicacao {
 		get("/getreceita", (request, response) -> receitaService.get(request, response));
 		get("/updatereceita", (request, response) -> receitaService.update(request, response));
 		get("/deletereceita", (request, response) -> receitaService.delete(request, response));
+		//get("/listreceitas", (request, response) -> receitaService.getAll(request, response));
 		get("/listreceitas", (request, response) -> receitaService.getAll(request, response));
 		post("/insertingrediente", (request, response) -> ingredienteService.insert(request, response));
 		get("/getingrediente", (request, response) -> ingredienteService.get(request, response));
@@ -30,7 +31,7 @@ public class Aplicacao {
 		get("/getIngredienteApp/:k", (request, response) -> ingredienteService.getIngredienteApp(request.params(":k")));
 		get("/getIngredientejson", (request, response) -> ingredienteService.getAll(request, response));
 		options("/*", (request, response) -> {
-			
+
 			
 			
 			String accessControlRequestHeaders = request.headers("Access-Control-Request-Headers");

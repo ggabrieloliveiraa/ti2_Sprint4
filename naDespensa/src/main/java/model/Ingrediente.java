@@ -9,6 +9,10 @@ public class Ingrediente {
 		this.nome = "";
 		this.tipo = "";
 	}
+	
+	public Ingrediente(int idIngrediente) {
+		this.idIngrediente = idIngrediente;
+	}
 
 	public Ingrediente(int idIngrediente, String nome, String tipo) {
 		this.idIngrediente = idIngrediente;

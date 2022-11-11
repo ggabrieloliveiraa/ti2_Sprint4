@@ -8,6 +8,7 @@ import spark.Response;
 
 import dao.ReceitaDAO;
 import dao.SessionControl;
+import model.Ingrediente;
 import model.Receita;
 import dao.Ingrediente_receitaDAO;
 
@@ -92,9 +93,52 @@ public class ReceitaService {
 			return "Receita " + id + " não encontrado.";
 		}
 	}
-
+	/*
 	public String getAll(Request request, Response response) {
 		List<Receita> receitas = receitaDAO.getOrderByCodigo();
+		String allReceitas = "";
+		for (Receita u : receitas) {
+			allReceitas += u.toString();
+		}
+		return allReceitas;
+	}
+	*/
+	public String getAllTeste(Request request, Response response) {
+		return receitaDAO.getIngredientesDaReceita(26).toString();
+	}
+	public String getAll(Request request, Response response) {
+		List<Receita> receitas = receitaDAO.getOrderByCodigo();
+		String allReceitas = "[";
+		for (Receita u : receitas) {
+			allReceitas +="{\"productName\":\"";
+			allReceitas += u.getNome();
+			allReceitas +="\",\"ingredientes\":\"";
+			allReceitas += receitaDAO.getIngredientesDaReceita(u.getIdReceita());
+			allReceitas +="\",\"idReceita\":\"";
+			allReceitas += u.getIdReceita();
+			allReceitas +="\",\"serve\":\"";
+			allReceitas += u.getServe();
+			allReceitas +="\",\"dificuldade\":\"";
+			allReceitas += u.getDificuldade();
+			allReceitas +="\",\"tempo\":\"";
+			allReceitas += u.getTempoDePreparo();
+			allReceitas +="\",\"categoria\":\"";
+			allReceitas += u.getCategoria();
+			allReceitas +="\",\"image\":\"";
+			allReceitas += u.getImagem();
+			allReceitas +="\",\"preparo\":\"";
+			allReceitas += u.getModoDePreparo();
+			allReceitas +="\",\"usuarioPublicador\":\"";
+			allReceitas += u.getUsuarioPublicador_codigo();
+			allReceitas += "\"},";
+		}
+		allReceitas = allReceitas.substring(0, allReceitas.length() - 1);
+		allReceitas += "]";
+		return allReceitas;
+	}
+	
+	public String getAllCurtidas(Request request, Response response) {
+		List<Receita> receitas = receitaDAO.getCurtidas();
 		String allReceitas = "";
 		for (Receita u : receitas) {
 			allReceitas += u.toString();

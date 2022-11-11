@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.Ingrediente;
+import model.Ingrediente;
 
 public class IngredienteDAO extends DAO {
 	public int getMaxId() {
@@ -36,8 +37,8 @@ public class IngredienteDAO extends DAO {
 		boolean status = false;
 		try {
 			Statement st = conexao.createStatement();
-			String sql = "INSERT INTO ingrediente (idIngrediente, nome, tipo) "
-					+ "VALUES (" + getMaxId() + ", '" + ingrediente.getNome() + "', '" + ingrediente.getTipo() + "');"; 
+			String sql = "INSERT INTO ingrediente (idIngrediente, nome, tipo) " + "VALUES (" + getMaxId() + ", '"
+					+ ingrediente.getNome() + "', '" + ingrediente.getTipo() + "');";
 			System.out.println(sql);
 			st.executeUpdate(sql);
 			st.close();
@@ -47,7 +48,6 @@ public class IngredienteDAO extends DAO {
 		}
 		return status;
 	}
-	
 
 	public Ingrediente get(int idIngrediente) {
 		Ingrediente ingrediente = null;
@@ -58,15 +58,14 @@ public class IngredienteDAO extends DAO {
 			System.out.println(sql);
 			ResultSet rs = st.executeQuery(sql);
 			if (rs.next()) {
-				ingrediente = new Ingrediente(rs.getInt("idIngrediente"),
-						rs.getString("nome"), rs.getString("tipo"));
+				ingrediente = new Ingrediente(rs.getInt("idIngrediente"), rs.getString("nome"), rs.getString("tipo"));
 			}
 			st.close();
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
-			
+
 		}
-		
+
 		return ingrediente;
 	}
 
@@ -78,7 +77,6 @@ public class IngredienteDAO extends DAO {
 		return get("idingrediente");
 	}
 
-
 	private List<Ingrediente> get(String orderBy) {
 
 		List<Ingrediente> ingredientes = new ArrayList<Ingrediente>();
@@ -89,8 +87,7 @@ public class IngredienteDAO extends DAO {
 			System.out.println(sql);
 			ResultSet rs = st.executeQuery(sql);
 			while (rs.next()) {
-				Ingrediente u = new Ingrediente(rs.getInt("idIngrediente"),
-						rs.getString("nome"), rs.getString("tipo"));
+				Ingrediente u = new Ingrediente(rs.getInt("idIngrediente"), rs.getString("nome"), rs.getString("tipo"));
 				ingredientes.add(u);
 			}
 			st.close();
@@ -100,12 +97,47 @@ public class IngredienteDAO extends DAO {
 		return ingredientes;
 	}
 
+	public List<Ingrediente> getIngredientesDaReceita(int idReceita) {
+
+		List<Ingrediente> ingredientes = new ArrayList<Ingrediente>();
+
+		try {
+			Statement st = conexao.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+			String sql = "SELECT ingrediente_idingrediente FROM ingrediente_receita WHERE receita_idreceita="
+					+ idReceita;
+			System.out.println(sql);
+			ResultSet rs = st.executeQuery(sql);
+			while (rs.next()) {
+				Ingrediente u = new Ingrediente(rs.getInt("ingrediente_idingrediente"));
+				ingredientes.add(u);
+			}
+			st.close();
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
+		}
+		try {
+			Statement st = conexao.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+			String sql = "SELECT ingrediente_idingrediente FROM ingrediente_receita WHERE receita_idreceita="
+					+ idReceita;
+			System.out.println(sql);
+			ResultSet rs = st.executeQuery(sql);
+			while (rs.next()) {
+				Ingrediente u = new Ingrediente(rs.getInt("ingrediente_idingrediente"));
+				ingredientes.add(u);
+			}
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
+		}
+
+		return ingredientes;
+	}
+
 	public boolean update(Ingrediente ingrediente) {
 		boolean status = false;
 		try {
 			Statement st = conexao.createStatement();
-			String sql = "UPDATE ingrediente SET nome = '" + ingrediente.getNome() + "', tipo = '" + 
-			ingrediente.getTipo() + "'" + " WHERE idIngrediente = " + ingrediente.getIdIngrediente();
+			String sql = "UPDATE ingrediente SET nome = '" + ingrediente.getNome() + "', tipo = '"
+					+ ingrediente.getTipo() + "'" + " WHERE idIngrediente = " + ingrediente.getIdIngrediente();
 			System.out.println(sql);
 			st.executeUpdate(sql);
 			st.close();

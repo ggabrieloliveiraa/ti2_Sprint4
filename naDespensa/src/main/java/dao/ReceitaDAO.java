@@ -1,10 +1,10 @@
 package dao;
 
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.Ingrediente;
 import model.Receita;
 
 public class ReceitaDAO extends DAO {
@@ -87,6 +87,68 @@ public class ReceitaDAO extends DAO {
 		try {
 			Statement st = conexao.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 			String sql = "SELECT * FROM receita" + ((orderBy.trim().length() == 0) ? "" : (" ORDER BY " + orderBy));
+			System.out.println(sql);
+			ResultSet rs = st.executeQuery(sql);
+			while (rs.next()) {
+				Receita u = new Receita(rs.getInt("idReceita"), rs.getInt("serve"), rs.getInt("dificuldade"),
+						rs.getInt("tempoDePreparo"), rs.getInt("categoria"), rs.getInt("usuariopublicador_codigo"),
+						rs.getString("nome"), rs.getString("modoDePreparo"), rs.getString("imagem"));
+				receitas.add(u);
+			}
+			st.close();
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
+		}
+		return receitas;
+	}
+
+	public String getIngredientesDaReceita(int idReceita) {
+
+		List<Integer> ingredientesIDS = new ArrayList<Integer>();
+		try {
+			Statement st = conexao.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+			String sql = "SELECT ingrediente_idingrediente FROM ingrediente_receita WHERE receita_idreceita="
+					+ idReceita;
+			System.out.println(sql);
+			ResultSet rs = st.executeQuery(sql);
+			while (rs.next()) {
+				ingredientesIDS.add(rs.getInt("ingrediente_idingrediente"));
+			}
+			st.close();
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
+		}
+		String ingredientes = "\"[";
+		try {
+			Statement st2 = conexao.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+			for (int i = 0; i < ingredientesIDS.size(); i++) {
+				String sql2 = "SELECT nome FROM ingrediente WHERE idingrediente=" + ingredientesIDS.get(i);
+				System.out.println(sql2);
+				ResultSet rs2 = st2.executeQuery(sql2);
+				while (rs2.next()) {
+					if (i == ingredientesIDS.size() - 1) {
+						ingredientes += "\"" + rs2.getString("nome") + "\"";
+					} else {
+						ingredientes += "\"" + rs2.getString("nome") + "\",";
+					}
+				}
+			}
+			ingredientes += "]";
+
+			st2.close();
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
+		}
+		return ingredientes;
+	}
+
+	public List<Receita> getCurtidas() {
+
+		List<Receita> receitas = new ArrayList<Receita>();
+
+		try {
+			Statement st = conexao.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+			String sql = "SELECT * FROM receita WHERE idreceita=" + SessionControl.currentUserId;
 			System.out.println(sql);
 			ResultSet rs = st.executeQuery(sql);
 			while (rs.next()) {

@@ -1,6 +1,8 @@
 package dao;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 import model.Curtida;
 import model.Ingrediente;
@@ -16,7 +18,9 @@ public class CurtidaDAO extends DAO {
 		close();
 	}
 
-	public boolean insert(Curtida curtida) {
+	public boolean insert(int idreceita) {
+		Curtida curtida = null;
+		curtida = new Curtida(SessionControl.currentUserId, idreceita);
 		boolean status = false;
 		try {
 			Statement st = conexao.createStatement();
@@ -32,12 +36,4 @@ public class CurtidaDAO extends DAO {
 		return status;
 	}
 
-	public Curtida get(int idreceita) {
-		Curtida curtida = null;
-		
-		curtida = new Curtida(SessionControl.currentUserId, idreceita);
-		insert(curtida);
-		return curtida;
-		
-	}
 }
