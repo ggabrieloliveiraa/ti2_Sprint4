@@ -96,13 +96,15 @@ public class UsuarioService {
 	}
 
 	public String autenticar(Request request, Response response) throws Exception {
-		//File htmlFile = new File("/home/wanderson/git/ti2_Sprint4/naDespensa/src/main/resources/front-end/index.html");
+
+		File htmlFile = new File("/home/gabriel/git/ti2_Sprint4/naDespensa/src/main/resources/front-end/index.html");
+		
 		String username = request.queryParams("logUser");
 		String senha = DAO.toMD5(request.queryParams("logPwd"));
 		if (usuarioDAO.autenticar(username, senha)) {
 			SessionControl currentUser = new SessionControl();
 			currentUser.setCurrentUser(username);
-			//Desktop.getDesktop().browse(htmlFile.toURI());
+			Desktop.getDesktop().browse(htmlFile.toURI());
 			return ("LOGIN SUCESSO, BEM VINDO " + SessionControl.currentUserName);
 		} else {
 			return ("LOGIN FALHO");
