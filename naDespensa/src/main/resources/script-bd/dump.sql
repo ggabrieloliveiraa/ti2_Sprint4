@@ -7,12 +7,12 @@ CREATE TABLE IF NOT EXISTS usuario (
   
   CREATE TABLE IF NOT EXISTS receita (
   idReceita INT UNIQUE NOT NULL,
-  Nome VARCHAR(45) NOT NULL,
+  Nome VARCHAR(100) NOT NULL,
   Serve INT NOT NULL,
   Dificuldade INT NOT NULL,
   TempoDePreparo INT NOT NULL,
   ModoDePreparo TEXT NOT NULL,
-  Imagem VARCHAR(200) NULL,
+  Imagem TEXT NULL,
   Categoria INT NOT NULL,
   UsuarioPublicador_codigo INT NOT NULL,
   PRIMARY KEY (idReceita, UsuarioPublicador_codigo),
@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS usuario (
 
 CREATE TABLE IF NOT EXISTS ingrediente (
   idingrediente INT NOT NULL,
-  Nome VARCHAR(45) NOT NULL,
+  Nome VARCHAR(50) NOT NULL,
   Tipo INT NOT NULL,
   PRIMARY KEY (idingrediente))
 
