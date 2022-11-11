@@ -73,68 +73,88 @@ let receitas = {
   ],
 };
 
+// pegar ingredientes do BD ----------
+
 let ingredientes = {
-  data: [
-    {
-      nome: "Chocolate",
-      idIngrediente: "1",
-    },
-    {
-      nome: "Acucar",
-      idIngrediente: "2",
-    },
-    {
-      nome: "Cenoura",
-      idIngrediente: "3",
-    },
-    {
-      nome: "Morango",
-      idIngrediente: "4",
-    },
-    {
-      nome: "Abacate",
-      idIngrediente: "5",
-    },
-    {
-      nome: "Cebola",
-      idIngrediente: "6",
-    },
-    {
-      nome: "Massadetomate",
-      idIngrediente: "7",
-    },
-  ],
+  data: [],
 };
 
-function depois() {
-  for (let i of ingredientes.data) {
-    let b = document.createElement("button");
-    let nomeIngrediente = i.nome.toUpperCase();
-    b.classList.add("b", nomeIngrediente, "naopesquisado", "button-value");
-    //b.setAttribute("onclick", "filterProduct('"+i.nome+"')");
-    b.setAttribute("onclick", "addFilter('" + i.nome + "')");
-    b.textContent = i.nome;
+let theUrl = `http://localhost:6789/getIngredientejson`;
 
-    document.getElementById("ingredientesHidden").appendChild(b);
-  }
+let respostaa = "";
+fetch("http://localhost:6789/getIngredientejson")
+  .then((response) => response.json())
+  .then((data) => localStorage.setItem("respostaa", JSON.stringify(data)));
+
+console.log(localStorage.respostaa);
+
+stringona = localStorage.respostaa;
+let elementos = JSON.parse(stringona);
+for (let i = 0; i < elementos.length; i++) {
+  ingredientes.data.push(elementos[i]);
 }
+console.log(ingredientes);
 
+// ------------------------------------
 /*
-var ii = JSON.parse(localStorage.getItem("ingredientesLocal"));
+// pegar ingredientes do BD ----------
+let ingredientes = {
+  data: [],
+};
 
-ii = ingredientes;
+let theUrl = `http://localhost:6789/getIngredientejson`;
 
-for (let i = 0; i < ii.data.length; i++) {
+let respostaa = "";
+fetch("http://localhost:6789/getIngredientejson")
+  .then((response) => response.json())
+  .then((data) => (respostaa = JSON.stringify(data)));
+console.log(respostaa);*/
+/*
+$.ajax({
+  url: theUrl,
+  method: "GET",
+  contentType: "text/plain",
+  preocessData: false,
+  success: function (resposta) {
+    //console.log(resposta);
+  },
+});*/
+/*
+//respostaa = JSON.stringify(respostaa);
+console.log(respostaa);
+
+//let stringona = respostaa;
+var elementos = JSON.parse(respostaa);
+
+for (let i = 0; i < elementos.length; i++) {
+  ingredientes.data.push(elementos[i]);
+}
+console.log(ingredientes);
+*/
+// ------------------------------------
+
+for (let i = 0; i < ingredientes.data.length; i++) {
   let b = document.createElement("button");
-  let nomeIngrediente = ii.data[i].nome.toUpperCase();
+  let nomeee = ingredientes.data[i].nome.toUpperCase().split(" ");
+  let nomeIngrediente = "";
+  if (nomeee.length > 1) {
+    nomeIngrediente += nomeee[0];
+    nomeIngrediente += "_";
+    nomeIngrediente += nomeee[1];
+    nomeIngrediente += "_";
+    nomeIngrediente += nomeee[2];
+  } else {
+    nomeIngrediente += nomeee[0];
+  }
   console.log(nomeIngrediente);
+
   b.classList.add("b", nomeIngrediente, "naopesquisado", "button-value");
   //b.setAttribute("onclick", "filterProduct('"+i.nome+"')");
-  b.setAttribute("onclick", "addFilter('" + ii.data[i].nome + "')");
-  b.textContent = ii.data[i].nome;
+  b.setAttribute("onclick", "addFilter('" + ingredientes.data[i].nome + "')");
+  b.textContent = ingredientes.data[i].nome;
 
   document.getElementById("ingredientesHidden").appendChild(b);
-}*/
+}
 
 // mostrar ingredientes
 function mostrarIngredientes() {
@@ -282,74 +302,8 @@ function pesquisarIngrediente() {
   mostrarSelecionados();
 }
 
-//get("/getIngredienteApp/:k", (request, response) -> ingredienteService.getIngredienteApp(request.params(":k")));
-var funcShowIngredients = function () {
-  for (let k = 1; k <= 30; k++) {
-    let theUrl = `http://localhost:6789/getIngredienteApp/${k}`;
-    $.ajax({
-      url: theUrl,
-      method: "GET",
-      contentType: "text/plain",
-      preocessData: false,
-      success: function (resposta) {
-        //console.log(resposta);
-        createIngredients(resposta);
-      },
-    });
-  }
-};
-
-var createIngredients = function (resposta) {
-  const ingInfo = resposta.split(",");
-
-  const nome = ingInfo[1].split(" ");
-  var nomeF = "";
-  if (nome.length >= 2) {
-    nomeF += nome[0];
-    nomeF += " ";
-    nomeF += nome[1];
-    if (nome[1] == "de" || nome[1] == "da" || nome[1] == "do") {
-      nomeF += " ";
-      nomeF += nome[2];
-    }
-  } else {
-    nomeF += ingInfo[1];
-  }
-
-  var nomeDiv = "";
-  if (nome.length >= 2) {
-    nomeDiv += nome[0];
-    nomeDiv += "_";
-    nomeDiv += nome[1];
-    if (nome[1] == "de" || nome[1] == "da" || nome[1] == "do") {
-      nomeDiv += "_";
-      nomeDiv += nome[2];
-    }
-  } else {
-    nomeDiv += ingInfo[1];
-  }
-
-  let novoIngrediente = {
-    nome: nomeF,
-    idIngrediente: ingInfo[0],
-  };
-
-  ingredientes.data.push(novoIngrediente);
-  console.log(ingredientes);
-
-  // Insere o novo objeto no array
-  //ii.data.push(novoIngrediente);
-
-  // Atualiza os dados no Local Storage
-  //localStorage.setItem("ingredientesLocal", JSON.stringify(ii));
-
-  //ingredientes.data.push(novoIngrediente);
-};
-
 //Initially display all receitas
 window.onload = () => {
-  funcShowIngredients();
-  depois();
   console.log(localStorage.pesquisaPorIngredientes);
 
   mostrarIngredientes();
