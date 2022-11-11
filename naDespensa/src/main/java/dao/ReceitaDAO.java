@@ -118,7 +118,7 @@ public class ReceitaDAO extends DAO {
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
 		}
-		String ingredientes = "\"[";
+		String ingredientes = "[";
 		try {
 			Statement st2 = conexao.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 			for (int i = 0; i < ingredientesIDS.size(); i++) {

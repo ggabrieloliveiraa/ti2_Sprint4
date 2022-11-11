@@ -106,9 +106,9 @@ public class ReceitaService {
 		for (Receita u : receitas) {
 			allReceitas += "{\"productName\":\"";
 			allReceitas += u.getNome();
-			allReceitas += "\",\"ingredientes\":\"";
+			allReceitas += "\",\"ingredientes\":";
 			allReceitas += receitaDAO.getIngredientesDaReceita(u.getIdReceita());
-			allReceitas += "\",\"idReceita\":\"";
+			allReceitas += ",\"idReceita\":\"";
 			allReceitas += u.getIdReceita();
 			allReceitas += "\",\"serve\":\"";
 			allReceitas += u.getServe();
