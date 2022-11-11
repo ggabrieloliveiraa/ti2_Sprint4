@@ -18,6 +18,7 @@ public class CurtidaDAO extends DAO {
 		close();
 	}
 
+	
 	public boolean insert(int idreceita) {
 		Curtida curtida = null;
 		curtida = new Curtida(SessionControl.currentUserId, idreceita);

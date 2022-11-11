@@ -14,6 +14,7 @@ public class Ingrediente {
 		this.idIngrediente = idIngrediente;
 	}
 
+	
 	public Ingrediente(int idIngrediente, String nome, String tipo) {
 		this.idIngrediente = idIngrediente;
 		this.nome = nome;

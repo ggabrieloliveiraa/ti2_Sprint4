@@ -14,6 +14,7 @@ public class Usuario {
 	}
 	
 	
+	
 	public Usuario(int codigo, String username, String senha, String email) {
 		this.codigo = codigo;
 		this.username = username;

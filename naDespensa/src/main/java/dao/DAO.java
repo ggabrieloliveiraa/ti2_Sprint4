@@ -21,6 +21,7 @@ public class DAO {
 		String password = "ti@cc";
 		boolean status = false;
 
+		
 		try {
 			Class.forName(driverName);
 			conexao = DriverManager.getConnection(url, username, password);

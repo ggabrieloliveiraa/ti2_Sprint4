@@ -1,9 +1,7 @@
 package model;
 
-
 public class Curtida {
 	private int usuarioCurtidor_codigo, receitaCurtida_id;
-	
 
 	public Curtida(int usuarioCurtidor_codigo, int receitaCurtida_id) {
 		super();
@@ -44,5 +42,5 @@ public class Curtida {
 		return "Curtida [usuarioCurtidor_codigo=" + usuarioCurtidor_codigo + ", receitaCurtida_id=" + receitaCurtida_id
 				+ "]";
 	}
-	
+
 }

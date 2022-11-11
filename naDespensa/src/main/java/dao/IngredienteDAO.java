@@ -24,6 +24,7 @@ public class IngredienteDAO extends DAO {
 		return nextCodigo;
 	}
 
+	
 	public IngredienteDAO() {
 		super();
 		conectar();

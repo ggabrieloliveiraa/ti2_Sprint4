@@ -1,7 +1,5 @@
 package service;
 
-
-
 import java.util.List;
 import spark.Request;
 import spark.Response;
@@ -11,7 +9,6 @@ import dao.SessionControl;
 import model.Ingrediente;
 import model.Receita;
 import dao.Ingrediente_receitaDAO;
-
 
 public class ReceitaService {
 	private ReceitaDAO receitaDAO = new ReceitaDAO();
@@ -26,14 +23,14 @@ public class ReceitaService {
 		String modoDePreparo = request.queryParams("modoDePreparo");
 		String imagem = request.queryParams("imagem");
 		String ingredientes = request.queryParams("ingredientes");
-		
-		
+
 		// int receitaPublicador_codigo =
 		// Integer.parseInt(request.queryParams("serve"));
 //idReceita, serve, dificuldade, tempoDePreparo, categoria, receitaPublicador_codigo
 		String resp = "";
 
-		Receita receita = new Receita(0, serve, dificuldade, tempoDePreparo, categoria, SessionControl.currentUserId, nome, modoDePreparo, imagem);
+		Receita receita = new Receita(0, serve, dificuldade, tempoDePreparo, categoria, SessionControl.currentUserId,
+				nome, modoDePreparo, imagem);
 
 		if (receitaDAO.insert(receita) == true) {
 			resp = "Receita (" + nome + ") inserido!";
@@ -93,42 +90,39 @@ public class ReceitaService {
 			return "Receita " + id + " não encontrado.";
 		}
 	}
+
 	/*
-	public String getAll(Request request, Response response) {
-		List<Receita> receitas = receitaDAO.getOrderByCodigo();
-		String allReceitas = "";
-		for (Receita u : receitas) {
-			allReceitas += u.toString();
-		}
-		return allReceitas;
-	}
-	*/
+	 * public String getAll(Request request, Response response) { List<Receita>
+	 * receitas = receitaDAO.getOrderByCodigo(); String allReceitas = ""; for
+	 * (Receita u : receitas) { allReceitas += u.toString(); } return allReceitas; }
+	 */
 	public String getAllTeste(Request request, Response response) {
 		return receitaDAO.getIngredientesDaReceita(26).toString();
 	}
+
 	public String getAll(Request request, Response response) {
 		List<Receita> receitas = receitaDAO.getOrderByCodigo();
 		String allReceitas = "[";
 		for (Receita u : receitas) {
-			allReceitas +="{\"productName\":\"";
+			allReceitas += "{\"productName\":\"";
 			allReceitas += u.getNome();
-			allReceitas +="\",\"ingredientes\":\"";
+			allReceitas += "\",\"ingredientes\":\"";
 			allReceitas += receitaDAO.getIngredientesDaReceita(u.getIdReceita());
-			allReceitas +="\",\"idReceita\":\"";
+			allReceitas += "\",\"idReceita\":\"";
 			allReceitas += u.getIdReceita();
-			allReceitas +="\",\"serve\":\"";
+			allReceitas += "\",\"serve\":\"";
 			allReceitas += u.getServe();
-			allReceitas +="\",\"dificuldade\":\"";
+			allReceitas += "\",\"dificuldade\":\"";
 			allReceitas += u.getDificuldade();
-			allReceitas +="\",\"tempo\":\"";
+			allReceitas += "\",\"tempo\":\"";
 			allReceitas += u.getTempoDePreparo();
-			allReceitas +="\",\"categoria\":\"";
+			allReceitas += "\",\"categoria\":\"";
 			allReceitas += u.getCategoria();
-			allReceitas +="\",\"image\":\"";
+			allReceitas += "\",\"image\":\"";
 			allReceitas += u.getImagem();
-			allReceitas +="\",\"preparo\":\"";
+			allReceitas += "\",\"preparo\":\"";
 			allReceitas += u.getModoDePreparo();
-			allReceitas +="\",\"usuarioPublicador\":\"";
+			allReceitas += "\",\"usuarioPublicador\":\"";
 			allReceitas += u.getUsuarioPublicador_codigo();
 			allReceitas += "\"},";
 		}
@@ -136,7 +130,7 @@ public class ReceitaService {
 		allReceitas += "]";
 		return allReceitas;
 	}
-	
+
 	public String getAllCurtidas(Request request, Response response) {
 		List<Receita> receitas = receitaDAO.getCurtidas();
 		String allReceitas = "";

@@ -21,7 +21,8 @@ public class Aplicacao {
 		get("/getreceita", (request, response) -> receitaService.get(request, response));
 		get("/updatereceita", (request, response) -> receitaService.update(request, response));
 		get("/deletereceita", (request, response) -> receitaService.delete(request, response));
-		//get("/listreceitas", (request, response) -> receitaService.getAll(request, response));
+		// get("/listreceitas", (request, response) -> receitaService.getAll(request,
+		// response));
 		get("/listreceitas", (request, response) -> receitaService.getAll(request, response));
 		post("/insertingrediente", (request, response) -> ingredienteService.insert(request, response));
 		get("/getingrediente", (request, response) -> ingredienteService.get(request, response));
@@ -32,8 +33,6 @@ public class Aplicacao {
 		get("/getIngredientejson", (request, response) -> ingredienteService.getAll(request, response));
 		options("/*", (request, response) -> {
 
-			
-			
 			String accessControlRequestHeaders = request.headers("Access-Control-Request-Headers");
 			if (accessControlRequestHeaders != null) {
 				response.header("Access-Control-Allow-Headers", accessControlRequestHeaders);
@@ -47,25 +46,20 @@ public class Aplicacao {
 			return "OK";
 		});
 
-		options("/*",
-		        (request, response) -> {
+		options("/*", (request, response) -> {
 
-		            String accessControlRequestHeaders = request
-		                    .headers("Access-Control-Request-Headers");
-		            if (accessControlRequestHeaders != null) {
-		                response.header("Access-Control-Allow-Headers",
-		                        accessControlRequestHeaders);
-		            }
+			String accessControlRequestHeaders = request.headers("Access-Control-Request-Headers");
+			if (accessControlRequestHeaders != null) {
+				response.header("Access-Control-Allow-Headers", accessControlRequestHeaders);
+			}
 
-		            String accessControlRequestMethod = request
-		                    .headers("Access-Control-Request-Method");
-		            if (accessControlRequestMethod != null) {
-		                response.header("Access-Control-Allow-Methods",
-		                        accessControlRequestMethod);
-		            }
+			String accessControlRequestMethod = request.headers("Access-Control-Request-Method");
+			if (accessControlRequestMethod != null) {
+				response.header("Access-Control-Allow-Methods", accessControlRequestMethod);
+			}
 
-		            return "OK";
-		        });
+			return "OK";
+		});
 
 		before((request, response) -> response.header("Access-Control-Allow-Origin", "*"));
 	}

@@ -16,6 +16,7 @@ public class Ingrediente_receita {
 		this.quantidade = quantidade;
 	}
 
+	
 	/**
 	 * @return the ingrediente_idingrediente
 	 */

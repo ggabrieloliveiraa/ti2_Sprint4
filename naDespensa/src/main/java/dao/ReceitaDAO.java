@@ -135,6 +135,7 @@ public class ReceitaDAO extends DAO {
 			}
 			ingredientes += "]";
 
+			
 			st2.close();
 		} catch (Exception e) {
 			System.err.println(e.getMessage());

@@ -32,6 +32,7 @@ public class SessionControl extends DAO {
 		currentUserId = -1;
 	}
 	
+	
 	public SessionControl() {
 		super();
 		conectar();

@@ -30,6 +30,7 @@ public class UsuarioDAO extends DAO {
 		conectar();
 	}
 
+	
 	public void finalize() {
 		close();
 	}

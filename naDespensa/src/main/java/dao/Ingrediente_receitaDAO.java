@@ -21,6 +21,7 @@ public class Ingrediente_receitaDAO extends DAO {
 		return nextCodigo;
 	}
 	
+	
 	public Ingrediente_receitaDAO() {
 		super();
 		conectar();
