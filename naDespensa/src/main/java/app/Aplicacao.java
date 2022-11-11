@@ -31,6 +31,7 @@ public class Aplicacao {
 		get("/getIngredientejson", (request, response) -> ingredienteService.getAll(request, response));
 		options("/*", (request, response) -> {
 			
+			
 			String accessControlRequestHeaders = request.headers("Access-Control-Request-Headers");
 			if (accessControlRequestHeaders != null) {
 				response.header("Access-Control-Allow-Headers", accessControlRequestHeaders);
