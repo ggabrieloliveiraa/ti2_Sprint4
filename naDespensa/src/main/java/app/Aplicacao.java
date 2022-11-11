@@ -32,6 +32,7 @@ public class Aplicacao {
 		options("/*", (request, response) -> {
 			
 			
+			
 			String accessControlRequestHeaders = request.headers("Access-Control-Request-Headers");
 			if (accessControlRequestHeaders != null) {
 				response.header("Access-Control-Allow-Headers", accessControlRequestHeaders);
